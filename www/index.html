@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+    <style>
+      [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+        display: none !important;
+      }
+    </style>
+    <link href="css/ionic.app.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/modal.css" rel="stylesheet">
+<script type="text/javascript" src ='js/jquery-2.1.3.min.js'></script>
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    
+    <script src="cordova.js"></script>
+   
+    <link href="lib/ripple/ion-ripple.css" rel="stylesheet">
+  <script src="lib/ripple/ion-ripple.js"></script>
+
+
+     <script src="js/directives.js"></script>
+
+
+    <script src="js/controllers.js"></script>
+    <script src="js/app.js"></script>
+    
+  </head>
+  <body ng-app="starter">
+
+  <script id="inconvenientes.html" type="text/ng-template">
+  <ion-modal-view class="ion-nifty-modal2">
+    <div class="ion-modal-content-custom2">
+      <ion-content scroll="false" class="padding">
+        <div class='avisoDiv' >
+
+          <div>Encontramos un <br> inconveniente <br>administrativo</div>
+          <img src="img/excla.png">
+           <div class='divButtonEncuesta'> <button ion-ripple class="">Llamanos</button></div>
+               <i ng-click="closeModal()" class="ion-android-cancel"></i>
+      </div>
+      </ion-content>
+    </div>
+  </ion-modal-view>
+</script>
+
+
+
+  <script id="noEncuesta.html" type="text/ng-template">
+  <ion-modal-view class="ion-nifty-modal2">
+    <div class="ion-modal-content-custom2">
+      <ion-content scroll="false" class="padding">
+        <div class='avisoDiv' >
+
+          <div>No tiene encuestas <br> pendientes</div>
+          <img src="img/excla.png">
+           <div class='divButtonEncuesta'> <button ion-ripple class="">Volver</button></div>
+               <i ng-click="closeModal()" class="ion-android-cancel"></i>
+      </div>
+      </ion-content>
+    </div>
+  </ion-modal-view>
+</script>
+
+  <script id="retiraCertificado.html" type="text/ng-template">
+  <ion-modal-view class="ion-nifty-modal2">
+    <div class="ion-modal-content-custom2">
+      <ion-content scroll="false" class="padding">
+        <div class='avisoDiv' >
+
+          <div>FELICITACIONES <br> </div>
+          <div style="  font-size: 25px;
+    font-family: UbuntuB;
+    color: #ebb732;
+    margin-top: 7px;">RETIRA TU CERTIFICADO </div>
+
+          <img style='height: 120px' src="img/like2.png">
+           <div class='divButtonEncuesta'> <button ion-ripple class="">Llamanos</button></div>
+               <i ng-click="closeModal()" class="ion-android-cancel"></i>
+      </div>
+      </ion-content>
+    </div>
+  </ion-modal-view>
+</script>
+
+
+  <script id="contacto.html" type="text/ng-template">
+  <ion-modal-view class="ion-nifty-modal3">
+    <div class="ion-modal-content-custom3">
+      <ion-content style='  background-image: url(img/fondo.jpg);
+    background-size: cover;
+    background-position-y: -45px;' scroll="false" class="fondoInfo padding">
+
+      
+        <div class='avisoDiv' >
+
+          
+          <div style="  font-size: 25px;
+    font-family: Ubuntu;
+    color: #ebb732;
+    margin-top: 60px;">COMUNICATE CON NOSOTROS </div>
+
+    <div style="font-family: UbuntuB;
+    font-size: 18px;
+    margin-top: 20px; margin-bottom:5px">Colon N838 e/Humaita y <br> Pribebuy, Asuncion, Paraguay</div>
+    <a>VER GOOGLE MAPS</a>  
+
+    <div style="    margin-top: 22px;
+    font-size: 19px;
+    line-height: 27px;
+    font-family: UbuntuL;">Telefonos y fax: <br> <a>+595 21 443 900</a> <br> <a>+595 21 328 6043</a> <br> 
+    <a>+595 961 295 311</a></div>
+
+    <div style='    margin-top: 22px;
+    font-size: 19px;
+    line-height: 27px;
+    font-family: UbuntuL;' >Horario de Atencion: <br> LI a VI 8:00 a 20:00 horas</div>
+   <i ng-click="closeModal()" class="ion-android-cancel"></i>
+      </div>
+      </ion-content>
+    </div>
+  </ion-modal-view>
+</script>
+
+
+
+  <script id="menu.html" type="text/ng-template">
+  <ion-modal-view class="ion-nifty-modal">
+    <div ng-controller='mainMenuCtrl' class="ion-modal-content-custom">
+      <ion-content class="padding">
+      <button ng-click='closeModal()' style='    background-color: #0958e9;color: white;' class="button icon ion-navicon-round"></button>
+      <div class='menuOpciones'>
+      <div ng-click='goHome()'>Home</div>
+      <div ng-click='goNotificaciones()'>Notificaciones         <div style="    display: inline-block;
+    float: right;
+    margin-right: 13px;
+    background-color: #ebb732;
+    height: 25px !important;
+    width: 25px !important;
+    text-align: center;
+    border-radius: 20px;
+    color: #0958e9;
+    font-size: 15px;
+    padding-top: 0px !important;
+    line-height: 1.6;
+    margin-top: -3px;"><strong>2</strong></div> </div>
+      <div ng-click='problemasAdministrativos()'>Estado Academico</div>
+      <div ng-click='noEncuesta()' >Encuestas</div>
+      <div ng-click='goCuenta()'>Cuenta</div>
+      <div ng-click='contacto()'>Contacto</div>
+      </div> 
+      <!--   <button class="button button-full button-positive" ng-click="closeModal()">Close Modal</button> -->
+      </ion-content>
+    </div>
+  </ion-modal-view>
+</script>
+
+
+
+
+    <ion-nav-view></ion-nav-view>
+  </body>
+</html>

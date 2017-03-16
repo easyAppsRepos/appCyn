@@ -1,0 +1,102 @@
+<ion-view>
+
+    <ion-nav-bar align-title="right" class="bar-blank">
+    
+
+
+             <ion-nav-buttons  side="left">
+            <div ng-controller='mainMenuCtrl' style="background-color: #0958e9;
+    border-radius: 100%; height: 50px;width: 50px;   margin-top: 2px;
+    margin-left: 7px;    text-align: center;
+   ">
+                <button ng-click='openModal("menu.html", "fade-in-right")' style='  font-size: 26px;
+    margin-top: 8px;
+    color: #fafafa;' class="button  button-clear ion-navicon-round" menu-toggle="right">
+                </button>
+                    <div style="     position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 52px;
+    margin-top: 20px;
+    background-color: orange;
+    height: 25px;
+    width: 25px;
+    text-align: center;
+    line-height: 1.7;
+    border-radius: 100%;
+    color: #0958e9;
+    font-size: 15px;"><strong>2</strong></div>
+                </div>
+            </ion-nav-buttons>
+
+
+      <ion-nav-title >
+     <img class='imagenHeader' src="img/Logo_Azul.png"> 
+      </ion-nav-title>
+    </ion-nav-bar>
+
+
+  <ion-content >
+    
+
+    <div class='encabezadoDiv'>
+      <span class='encabezadoNombre'>Bienvenido</span>
+      <div class='nombreEstudiante' >Marcelo <br> Daponte <br> Gonzalves</div>
+    </div>
+
+    <div class='nombreSeccion'>
+        <div class='cuentaTitulo'>
+            Email
+        </div>
+        <div class='cuentaContent'>
+          mdaponte@viapro.com
+          <img src="img/edit.png">
+        </div>
+    </div>
+
+        <div class='nombreSeccion'>
+        <div class='cuentaTitulo'>
+            Numero de CI
+        </div>
+        <div class='cuentaContent'>
+          1234567
+          <img src="img/edit.png">
+        </div>
+    </div>
+
+        <div class='nombreSeccion'>
+        <div class='cuentaTitulo'>
+            Celular
+        </div>
+        <div class='cuentaContent'>
+          +595 (951) 123456
+          <img src="img/edit.png">
+        </div>
+    </div>
+
+        <div class='nombreSeccion'>
+        <div class='cuentaTitulo'>
+            Notificaciones
+        </div>
+        <div class='cuentaContent'>
+         Recibir Notificaciones
+              <label style="float:right" class="toggle toggle-positive">
+              <input type="checkbox">
+              <div class="track">
+              <div class="handle"></div>
+              </div>
+              </label>
+        </div>
+    </div>
+    <div style='border-bottom: none' class='nombreSeccion'>
+<div style="text-align:center;color: #0958e9;font-size: 18px;font-family: UbuntuL;">
+        <img src="img/head.png" style="
+    margin-bottom: 4px;
+"><br>
+        LLAMANOS
+        </div>
+    </div>
+
+
+  </ion-content>
+</ion-view>
