@@ -111,12 +111,14 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services' ,'d
 
 
                 .state('internaModuloMaestria', {
+                  cache:false,
       url: '/internaModuloMaestria/:idMaestria/:idDiplomado',
       templateUrl: 'templates/internaModuloMaestria.html',
       controller: "internaModuloMaestriaCtrl"
     })
 
         .state('internaModuloDiplomado', {
+          cache:false,
       url: '/internaModuloDiplomado/:idDiplomado',
       templateUrl: 'templates/internaModuloDiplomado.html',
       controller: "internaModuloDiplomadoCtrl"
@@ -124,12 +126,14 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services' ,'d
 
 
                 .state('notaMaestria', {
+                  cache:false,
       url: '/notaMaestria/:idDiplomado/:idMaestria/:idModulo',
       templateUrl: 'templates/notaMaestria.html',
       controller: "notaMaestriaCtrl"
     })
 
                 .state('encuesta', {
+                  cache:false,
       url: '/encuesta/:idModulo/:idDiplomado',
       templateUrl: 'templates/encuesta.html',
       controller: "encuestaCtrl"
@@ -137,6 +141,7 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services' ,'d
 
 
      .state('notaTesis', {
+      cache:false,
       url: '/notaTesis/:idMaestria',
       templateUrl: 'templates/notaTesis.html',
       controller: "notaTesisCtrl"
@@ -144,6 +149,7 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services' ,'d
 
 
                 .state('notaDiplomado', {
+                  cache:false,
       url: '/notaDiplomado/:idModulo/:idDiplomado',
       templateUrl: 'templates/notaDiplomado.html',
       controller: "notaDiplomadoCtrl"
