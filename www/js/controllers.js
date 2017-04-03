@@ -992,13 +992,15 @@ getNotaTesis();
   
 
         $scope.$on('$ionicView.enter', function(){ //This is fired twice in a row
-  var userData = JSON.parse(window.localStorage.getItem('userInfoVIA'));
+            var userData = JSON.parse(window.localStorage.getItem('userInfoVIA'));
   $scope.nombreAlumno=  userData.nombre;
-  $scope.idModulo = $stateParams.idModulo;
-  $scope.idDiplomado = $stateParams.idDiplomado;
   $scope.idUsuario = userData.idAlumno;
     });
 
+
+
+  $scope.idModulo = $stateParams.idModulo;
+  $scope.idDiplomado = $stateParams.idDiplomado;
 
 
   console.log('dd');
