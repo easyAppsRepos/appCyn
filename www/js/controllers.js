@@ -347,7 +347,7 @@ else{ $state.go('internaModuloDiplomado',{idDiplomado:$scope.diplomado.id}) }
         console.log('d');
         
                     $ionicLoading.show();
-            api.verificarEncuesta(userData.idAlumno).then(function(data) {
+            api.verificarEncuesta($scope.userData.idAlumno).then(function(data) {
            
             console.log(data.encuestasPendientes);
             //$scope.nombreMaestria=data.nombreMaestria;
