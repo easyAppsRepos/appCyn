@@ -234,13 +234,16 @@ console.log(userData);
   
 
       $scope.$on('$ionicView.enter', function(){ //This is fired twice in a row
+
   var userData = JSON.parse(window.localStorage.getItem('userInfoVIA'));
+  $scope.userData=  JSON.parse(window.localStorage.getItem('userInfoVIA'));
     $scope.nombreAlumno=  userData.nombre;
+
+    $scope.getHomeData();
+
     });
 
-      
-    var userData = JSON.parse(window.localStorage.getItem('userInfoVIA'));
-    $scope.nombreAlumno=  userData.nombre;
+
     $scope.maestria={};
      $scope.diplomado={};
      $scope.modulo={};
@@ -251,7 +254,7 @@ console.log(userData);
 
     $scope.getHomeData = function(){
 
-      var numDocumento = userData.idAlumno;
+      var numDocumento = $scope.userData.idAlumno;
       $ionicLoading.show();
       console.log(numDocumento);
       api.getHomeData(numDocumento).then(function(data) {
@@ -329,7 +332,7 @@ console.log(userData);
       });
     }
 
- $scope.getHomeData();
+ 
 
     $scope.verMasDiplomado = function(){
 console.log($scope.ExisteMaestria);
