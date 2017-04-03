@@ -195,6 +195,17 @@ console.log(userData.idAlumno);
 .controller('cuentaCtrl', function(  $scope, api, $ionicLoading, $rootScope, $state,$ionicSlideBoxDelegate) {
   
 
+
+        $scope.$on('$ionicView.enter', function(){ //This is fired twice in a row
+      var userData = JSON.parse(window.localStorage.getItem('userInfoVIA'));
+  $scope.nombreAlumno=  userData.nombre;
+    $scope.emailAlumno=  userData.email;
+      $scope.telefono=  userData.telefono;
+        $scope.notis=  userData.noti;
+    });
+
+
+
       var userData = JSON.parse(window.localStorage.getItem('userInfoVIA'));
   $scope.nombreAlumno=  userData.nombre;
     $scope.emailAlumno=  userData.email;
@@ -531,6 +542,17 @@ mensajeAlerta('Datos incompletos',false);
 .controller('notificacionesCtrl', function(  $scope, api, $ionicLoading, $rootScope, $state,$ionicSlideBoxDelegate) {
   
   console.log('dd');
+
+
+        $scope.$on('$ionicView.enter', function(){ //This is fired twice in a row
+
+      var userData = JSON.parse(window.localStorage.getItem('userInfoVIA'));
+  $scope.nombreAlumno=  userData.nombre;
+
+    });
+
+
+
 
       var userData = JSON.parse(window.localStorage.getItem('userInfoVIA'));
   $scope.nombreAlumno=  userData.nombre;
@@ -969,6 +991,16 @@ getNotaTesis();
 .controller('encuestaCtrl', function(  $scope, $stateParams, $ionicNavBarDelegate, $ionicPopup, api, $ionicLoading, $rootScope, $state,$ionicSlideBoxDelegate) {
   
 
+        $scope.$on('$ionicView.enter', function(){ //This is fired twice in a row
+  var userData = JSON.parse(window.localStorage.getItem('userInfoVIA'));
+  $scope.nombreAlumno=  userData.nombre;
+  $scope.idModulo = $stateParams.idModulo;
+  $scope.idDiplomado = $stateParams.idDiplomado;
+  $scope.idUsuario = userData.idAlumno;
+    });
+
+
+
   console.log('dd');
 
     $scope.nextSlide = function() {
@@ -982,11 +1014,7 @@ getNotaTesis();
   }
 
 
-  var userData = JSON.parse(window.localStorage.getItem('userInfoVIA'));
-  $scope.nombreAlumno=  userData.nombre;
-  $scope.idModulo = $stateParams.idModulo;
-  $scope.idDiplomado = $stateParams.idDiplomado;
-  $scope.idUsuario = userData.idAlumno;
+
 
 $scope.com={};
 $scope.com.comentario='';
