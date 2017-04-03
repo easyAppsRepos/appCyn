@@ -613,7 +613,7 @@ else{}
 
 
 
-.controller('mainMenuCtrl', function(  $scope, $ionicLoading, api, $rootScope, $state,$ionicSlideBoxDelegate, $ionicModal) {
+.controller('mainMenuCtrl', function(  $scope, $ionicLoading, $ionicHistory, api, $rootScope, $state,$ionicSlideBoxDelegate, $ionicModal) {
   
   console.log('dd');
 
@@ -734,6 +734,7 @@ $scope.closeModal();
 
     $scope.closeModal();
     window.localStorage.setItem( 'userInfoVIA', undefined);
+    $ionicHistory.clearCache();
     $state.go('login');
 
   }
