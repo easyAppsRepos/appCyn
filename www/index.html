@@ -22,9 +22,10 @@
 
 
      <script src="js/directives.js"></script>
-
-
+ 
+   <script src="js/services.js"></script>
     <script src="js/controllers.js"></script>
+   
     <script src="js/app.js"></script>
     
   </head>
@@ -38,7 +39,7 @@
 
           <div>Encontramos un <br> inconveniente <br>administrativo</div>
           <img src="img/excla.png">
-           <div class='divButtonEncuesta'> <button ion-ripple class="">Llamanos</button></div>
+           <div class='divButtonEncuesta'> <button ion-ripple class=""><a style='color:white !important;    border-bottom: none !important ; text-decoration: none !important; font-family: UbuntuL !important' href="tel:77777777">Llamanos</a></button></div>
                <i ng-click="closeModal()" class="ion-android-cancel"></i>
       </div>
       </ion-content>
@@ -133,7 +134,7 @@
       <button ng-click='closeModal()' style='    background-color: #0958e9;color: white;' class="button icon ion-navicon-round"></button>
       <div class='menuOpciones'>
       <div ng-click='goHome()'>Home</div>
-      <div ng-click='goNotificaciones()'>Notificaciones         <div style="    display: inline-block;
+      <div ng-click='goNotificaciones()'>Notificaciones       <!--   <div style="    display: inline-block;
     float: right;
     margin-right: 13px;
     background-color: #ebb732;
@@ -145,11 +146,12 @@
     font-size: 15px;
     padding-top: 0px !important;
     line-height: 1.6;
-    margin-top: -3px;"><strong>2</strong></div> </div>
+    margin-top: -3px;"><strong>2</strong></div> --> </div>
       <div ng-click='problemasAdministrativos()'>Estado Academico</div>
       <div ng-click='noEncuesta()' >Encuestas</div>
       <div ng-click='goCuenta()'>Cuenta</div>
       <div ng-click='contacto()'>Contacto</div>
+      <div ng-click='cerrarSesion()'>Cerrar sesion</div>
       </div> 
       <!--   <button class="button button-full button-positive" ng-click="closeModal()">Close Modal</button> -->
       </ion-content>

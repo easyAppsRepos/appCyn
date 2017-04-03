@@ -19,12 +19,12 @@
 
     <div class='encabezadoDiv'>
       <span class='encabezadoNombre' style="font-size:20px !important" >Encuesta</span>
-      <div class='nombreEstudiante' style="    line-height: 1 !important; font-size:20px !important" >Marcelo <br> Daponte <br> Gonzalves</div>
+      <div class='nombreEstudiante' style="    line-height: 1 !important; font-size:20px !important" >{{nombreAlumno}}</div>
     </div>
 
     <div class='nombreSeccion'>
 
-    <p class='tituloEncuesta' >Encuesta de Evaluacion <br> de calidad del modulo</p>
+    <p class='tituloEncuesta' >{{nombreEncuesta}}</p>
     <p class='enunciadoEncuesta' >Responde con detenimiento <br>
                                   Tus comentarios nos permitirá <br>
                                   ofrecerte mejores servicios<br>
@@ -43,46 +43,93 @@
       <p class="detalleE">Administracion de negocios (MAN)</p>
 
       <p class="tituloE">Diplomado</p>
-      <p class="detalleE">2. Alta gerencia financiera</p>
+      <p class="detalleE">{{nombreDiplomado}}</p>
 
 
       <p class="tituloE" >Módulo</p>
-      <p class="detalleE">1. Gestion y planificacion estrategica</p>
+      <p class="detalleE">{{nombreModulo}}</p>
 
       <p class="tituloE">Profesor</p>
-      <p class="detalleE">Marcelo Daponte Gonzalves</p>
+      <p class="detalleE">{{nombreProfesor}}</p>
 
 
     </div>
 
-    <div class="encuestaEvaluacionDiv">
-      <p>Respecto al modulo</p>
-      <div class="encuestaEvualuador">
-          <p>En que nivel a llenado sus expectativas</p>
-          <div>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>4</button>
-            <button>5</button>
-          </div>
+    <div class="encuestaEvaluacionDiv" ng-repeat='e in encuestas'>
+      <p>{{e.titulo}}</p>
+
+      <div class="encuestaEvualuador" ng-show='e.pregunta1 !== null' >
+          <p>{{e.pregunta1}}</p>
+
+            <div class=" padding botonesEvaluacion">
+            <a ng-click='seleccionar(e.idSeccion, 1, 1)' grouped-radio="'1'" ng-model="data.pregunta1">1</a>
+            <a ng-click='seleccionar(e.idSeccion, 1, 2)' grouped-radio="'2'" ng-model="data.pregunta1">2</a>
+            <a ng-click='seleccionar(e.idSeccion, 1, 3)' grouped-radio="'3'" ng-model="data.pregunta1">3</a>     
+            <a ng-click='seleccionar(e.idSeccion, 1, 4)' grouped-radio="'4'" ng-model="data.pregunta1">4</a> 
+            <a ng-click='seleccionar(e.idSeccion, 1, 5)' grouped-radio="'5'" ng-model="data.pregunta1">5</a> 
+
+            </div>
+
       </div>
-      <div class="encuestaEvualuador">
-          <p>Nivel de utilidad en el campo laboral</p>
-          <div>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>4</button>
-            <button>5</button>
-          </div>
+
+      <div class="encuestaEvualuador" ng-show='e.pregunta2 !== null'>
+          <p>{{e.pregunta2}}</p>
+          
+            <div class=" padding botonesEvaluacion">
+            <a grouped-radio="'1'" ng-click='seleccionar(e.idSeccion, 2, 1)' ng-model="data.pregunta2">1</a>
+            <a grouped-radio="'2'" ng-click='seleccionar(e.idSeccion, 2, 2)' ng-model="data.pregunta2">2</a>
+            <a grouped-radio="'3'" ng-click='seleccionar(e.idSeccion, 2, 3)' ng-model="data.pregunta2">3</a>     
+            <a grouped-radio="'4'" ng-click='seleccionar(e.idSeccion, 2, 4)' ng-model="data.pregunta2">4</a> 
+            <a grouped-radio="'5'" ng-click='seleccionar(e.idSeccion, 2, 5)' ng-model="data.pregunta2">5</a> 
+
+            </div>
+
+          
       </div>
+
+        <div class="encuestaEvualuador" ng-show='e.pregunta3 !== null'>
+          <p>{{e.pregunta3}}</p>
+            <div class=" padding botonesEvaluacion">
+            <a grouped-radio="'1'" ng-click='seleccionar(e.idSeccion, 3, 1)' ng-model="data.pregunta3">1</a>
+            <a grouped-radio="'2'" ng-click='seleccionar(e.idSeccion, 3, 2)' ng-model="data.pregunta3">2</a>
+            <a grouped-radio="'3'" ng-click='seleccionar(e.idSeccion, 3, 3)' ng-model="data.pregunta3">3</a>     
+            <a grouped-radio="'4'" ng-click='seleccionar(e.idSeccion, 3, 4)' ng-model="data.pregunta3">4</a> 
+            <a grouped-radio="'5'" ng-click='seleccionar(e.idSeccion, 3, 5)' ng-model="data.pregunta3">5</a> 
+
+            </div>
+      </div>
+
+        <div class="encuestaEvualuador" ng-show='e.pregunta4 !== null'>
+          <p>{{e.pregunta4}}</p>
+            <div class=" padding botonesEvaluacion">
+            <a grouped-radio="'1'" ng-click='seleccionar(e.idSeccion, 4, 1)'  ng-model="data.pregunta4">1</a>
+            <a grouped-radio="'2'" ng-click='seleccionar(e.idSeccion, 4, 2)' ng-model="data.pregunta4">2</a>
+            <a grouped-radio="'3'" ng-click='seleccionar(e.idSeccion, 4, 3)' ng-model="data.pregunta4">3</a>     
+            <a grouped-radio="'4'" ng-click='seleccionar(e.idSeccion, 4, 4)' ng-model="data.pregunta4">4</a> 
+            <a grouped-radio="'5'" ng-click='seleccionar(e.idSeccion, 4, 5)' ng-model="data.pregunta4">5</a> 
+
+            </div>
+      </div>
+
+       <div class="encuestaEvualuador" ng-show='e.pregunta5 !== null'>
+          <p>{{e.pregunta5}}</p>
+            <div class=" padding botonesEvaluacion">
+            <a grouped-radio="'1'" ng-click='seleccionar(e.idSeccion, 5, 1)' ng-model="data.pregunta5">1</a>
+            <a grouped-radio="'2'" ng-click='seleccionar(e.idSeccion, 5, 2)' ng-model="data.pregunta5">2</a>
+            <a grouped-radio="'3'" ng-click='seleccionar(e.idSeccion, 5, 3)' ng-model="data.pregunta5">3</a>     
+            <a grouped-radio="'4'" ng-click='seleccionar(e.idSeccion, 5, 4)' ng-model="data.pregunta5">4</a> 
+            <a grouped-radio="'5'" ng-click='seleccionar(e.idSeccion, 5, 5)' ng-model="data.pregunta5">5</a> 
+
+            </div>
+      </div>
+
+
     </div>
 
 
     <div style='border-bottom: none !important' class="encuestaEvaluacionDiv">
 
-      <p>Respecto al Profesor</p>
+<!--       <p>Respecto al Profesor</p>
 
       <div class="encuestaEvualuador">
           <p>Prepara y organiza la clase?</p>
@@ -93,19 +140,19 @@
             <button>4</button>
             <button>5</button>
           </div>
-      </div>
+      </div> -->
 
 
        <p style="margin-top:20px">Recomendacion</p>
        <div class="encuestaEvualuador">
           <p>Si tienes alguna observacion mas, nos encantaria saber</p>
           <div style="margin-top:20px"> 
-            <textarea placeholder="Escribelo Aqui"></textarea>
+            <textarea ng-model='com.comentario' placeholder="Escribelo Aqui"></textarea>
           </div>
       </div>
 
 
-       <div class='divButtonEncuesta'> <button ion-ripple class="">enviar encuesta</button></div>
+       <div class='divButtonEncuesta'> <button ng-click='enviarEncuesta()' ion-ripple class="">enviar encuesta</button></div>
     </div>
 
 

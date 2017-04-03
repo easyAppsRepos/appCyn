@@ -33,7 +33,7 @@
 
     <div class='encabezadoDiv'>
       <span class='encabezadoNombre'>Nota Modulo</span>
-      <div class='nombreEstudiante'>Marcelo <br> Daponte <br> Gonzalves</div>
+      <div class='nombreEstudiante'>{{nombreAlumno}}</div>
     </div>
 
 
@@ -54,7 +54,7 @@
         <p style="
     font-size: 15px;
     line-height: 13px;
-">Adminstracion de negocios inmobiliarios (MAN)</p>
+">{{nombreMaestria}}</p>
     </div>
 
 
@@ -62,48 +62,17 @@
 
 
 
-     <div style="
-    margin-top: 15px;
-    margin-left: 12px;
-    margin-right: 12px;
-  
-    border-bottom: solid 1px rgba(211, 211, 211, 0.54);
-    ">
 
- <p style="margin-bottom: 0px;
-    font-size: 19px;
-    color: darkgrey;">Diplomado</p>
- <p style=" color: #0958e9 ;   font-size: 16px;">2. Alta gerencia financiera</p>
-
-
-
-    <div style="    color: darkgrey;">
-    <i ng-click='nextSlide()' style='      color: lightgray !important;
-    position: absolute;
-    right: 0px;
-    font-size: 18px;
-    width: 30px;
-    margin-top: 20px;
-    height: 30px;    z-index: 6;' class="ion-chevron-right"></i>
-
-     <i ng-click='prevSlide()' style='    color: lightgray !important;
-    position: absolute;
-    left: 0px;
-    font-size: 18px;
-    width: 30px;text-align: right;
-    margin-top: 20px;
-    height: 30px;z-index: 6;' class="ion-chevron-left"></i> 
-
-
-
-      <data-date-slider-picker style='z-index: 5' >
+    <div class='sliderDiv'>
+      <p>Diplomado</p>
+      <p>{{nombreDiplomado}}</p>
+      <div class='sliderContainer'>
+        <i ng-click='nextSlide()' class="ion-chevron-right" style="    margin-top: 22px !important"></i>
+        <i ng-click='prevSlide()' class="ion-chevron-left" style="    margin-top: 22px !important"></i> 
+      <data-date-slider-picker style='z-index: 5' cantidad='idDiplomado' diplo='idModulo' tipo=2>
       </data-date-slider-picker>
+      </div>
     </div>
-
-
-
- </div>
-
 
 
 
@@ -123,15 +92,15 @@ padding-bottom: 18px;
       </div>
 <p style="    margin-top: 10px;
     font-size: 18px;
-    color: darkgrey;">1. Seguridad y riesgos</p>
+    color: darkgrey;">{{modulo.orden}}. {{modulo.nombre}}</p>
      
 
 <div class="row">
 
-  <div style='text-align:center;font-size: 70px;padding-left: 0px;line-height: 60px; border-right: solid 2px #0958e9;color: #0958e9;' class="col col-20">5</div>
+  <div style='text-align:center;font-size: 70px;padding-left: 0px;line-height: 60px; border-right: solid 2px #0958e9;color: #0958e9;' class="col col-20">{{modulo.nota|| '-'}}</div>
 
   <div style='    font-size: 18px;
-    margin-left: 10px;color: darkgrey;' class="col col-80 "><strong style="color:#0958e9;">100%</strong> Asistencia <br> <strong style="color:#0958e9;">100%</strong> Trabajo practico<br> <strong style="color:#0958e9;">100%</strong>  Evaluacion individual</div>
+    margin-left: 10px;color: darkgrey;' class="col col-80 "><strong style="color:#0958e9;">{{modulo.asistencia || '-'}}%</strong> Asistencia <br> <strong style="color:#0958e9;">{{modulo.trabajo|| '-'}}%</strong> Trabajo practico<br> <strong style="color:#0958e9;">{{modulo.evaluacion|| '-'}}%</strong>  Evaluacion individual</div>
 </div>
 
 
@@ -151,7 +120,7 @@ padding-bottom: 18px;
  <p style="margin-bottom: 0px;
     font-size: 19px;
     color: darkgrey;">Profesor</p>
- <p style=" color: #0958e9 ;   font-size: 16px;">Marcelo Daponte Gonzalves</p>
+ <p style=" color: #0958e9 ;   font-size: 16px;">{{modulo.profesor || '-'}}</p>
 
 </div>
 

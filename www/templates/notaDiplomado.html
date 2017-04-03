@@ -33,7 +33,7 @@
 
     <div class='encabezadoDiv'>
       <span class='encabezadoNombre'>Nota Modulo</span>
-      <div class='nombreEstudiante'>Marcelo <br> Daponte <br> Gonzalves</div>
+      <div class='nombreEstudiante'>{{nombreAlumno}}</div>
     </div>
 
 
@@ -54,7 +54,7 @@
         <p style="
     font-size: 15px;
     line-height: 13px;
-">Alta gerencia financiera</p>
+">{{modulo.nombreDiplomado}}</p>
     </div>
 
 
@@ -82,15 +82,15 @@ padding-bottom: 18px;
       </div>
 <p style="    margin-top: 10px;
     font-size: 18px;
-    color: darkgrey;">1. Seguridad y riesgos</p>
+    color: darkgrey;">{{modulo.orden}}. {{modulo.nombre}}</p>
      
 
 <div class="row">
 
-  <div style='text-align:center;font-size: 70px;padding-left: 0px;line-height: 60px; border-right: solid 2px #0958e9;color: #0958e9;' class="col col-20">5</div>
+  <div style='text-align:center;font-size: 70px;padding-left: 0px;line-height: 60px; border-right: solid 2px #0958e9;color: #0958e9;' class="col col-20">{{modulo.nota || '-'}}</div>
 
   <div style='    font-size: 18px;
-    margin-left: 10px;color: darkgrey;' class="col col-80 "><strong style="color:#0958e9;">100%</strong> Asistencia <br> <strong style="color:#0958e9;">100%</strong> Trabajo practico<br> <strong style="color:#0958e9;">100%</strong>  Evaluacion individual</div>
+    margin-left: 10px;color: darkgrey;' class="col col-80 "><strong style="color:#0958e9;">{{modulo.asistencia || '-'}}%</strong> Asistencia <br> <strong style="color:#0958e9;">{{modulo.trabajo || '-' }}%</strong> Trabajo practico<br> <strong style="color:#0958e9;">{{modulo.evaluacion || '-'}}%</strong>  Evaluacion individual</div>
 </div>
 
 
@@ -110,7 +110,7 @@ padding-bottom: 18px;
  <p style="margin-bottom: 0px;
     font-size: 19px;
     color: darkgrey;">Profesor</p>
- <p style=" color: #0958e9 ;   font-size: 16px;">Marcelo Daponte Gonzalves</p>
+ <p style=" color: #0958e9 ;   font-size: 16px;">{{modulo.profesor || '-'   }}</p>
 
 </div>
 

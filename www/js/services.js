@@ -1,89 +1,236 @@
 angular.module('starter.services', [])
 
+.factory('api', function($http, $q, $window, serverConfig) {
+
+    return {
+
+        generarPIN:function(numDocumento, email){  
+
+            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/generarPIN',{numDocumento:numDocumento, email:email})
+            .then(function(response) {
+            console.log(response);
+            return response.data.error;
+            }, function(response) {
+            // something went wrong
+            console.log('error');
+            return response.data.error;
+            });
+        },
 
 
 
-.factory('TaskService', ["$rootScope", "$q", function($rootScope, $q) {
+        loginAlumno:function(user, pass){  
 
-  return {
-    getGuestTasks : function(query) {
-      var deffered = $q.defer();
-      Stamplay.Query("object", "task")
-      .notExists("owner")
-      .exec()
-      .then(function(response) {
-        deffered.resolve(response)
-      }, function(error) {
-        deffered.reject(err);
-      })
-      return deffered.promise;
-    },
+            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/loginAlumno',{user:user, pass:pass})
+            .then(function(response) {
+            console.log(response);
+            return response.data;
+            }, function(response) {
+            // something went wrong
+            console.log('error');
+            return response.data;
+            });
+        },
 
-    getUsersTasks : function(query) {
-      var deffered = $q.defer();
+            getHomeData:function(userID){  
 
-      Stamplay.Object("task")
-      .findByCurrentUser(["owner"])
-      .then(function(response) {
-        deffered.resolve(response)
-      }, function(err) {
-        deffered.reject(err);
-      })
-      return deffered.promise;
-    },
+            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/getHomeData',{numDocumento:userID})
+            .then(function(response) {
+            console.log(response);
+            return response.data;
+            }, function(response) {
+            // something went wrong
+            console.log('error');
+            return response.data;
+            });
+        },
 
-    getTask : function(id) {
-        var deffered = $q.defer();
-        Stamplay.Object("task").get({ _id : id })
-        .then(function(response) {
-          deffered.resolve(response)
-        }, function(error) {
-          deffered.reject(err);
-        })
-        return deffered.promise;
-    },
+            getDiplomadosMaestria:function(idMaestria, idUsuario){  
 
-    addNew : function(task) {
-      var deffered = $q.defer();
+            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/getDiplomadosMaestria',{idMaestria:idMaestria, idUsuario:idUsuario })
+            .then(function(response) {
+            console.log(response);
+            return response.data;
+            }, function(response) {
+            // something went wrong
+            console.log('error');
+            return response.data;
+            });
+        },
 
-      Stamplay.Object("task").save(task)
-      .then(function(response) {
-        deffered.resolve(response)
-      }, function(err) {
-        deffered.reject(err);
-      })
-      return deffered.promise
-    },
-    deleteTask : function(id) {
-      var deffered = $q.defer();
-      Stamplay.Object("task").remove(id)
-      .then(function(response) {
-        deffered.resolve(response)
-      }, function(err) {
-        deffered.reject(err);
-      })
-      return deffered.promise;
-    },
-    updateTask : function(task) {
-      var deffered = $q.defer();
-      Stamplay.Object("task").update(task._id, task)
-      .then(function(response) {
-        deffered.resolve(response)
-      }, function(err) {
-        deffered.reject(err);
-      })
-      return deffered.promise;
-    },
-    patchTask : function(task) {
-      var deffered = $q.defer();
-      Stamplay.Object("task").patch(task._id, { complete: task.complete})
-      .then(function(response) {
-        deffered.resolve(response)
-      }, function(err) {
-        deffered.reject(err);
-      })
-      return deffered.promise;
+
+           getModulosDiplomado:function(idDiplomado, idUsuario, idMaestria){  
+
+            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/getModulosDiplomado',{idDiplomado:idDiplomado, idUsuario:idUsuario, idMaestria:idMaestria })
+            .then(function(response) {
+            console.log(response);
+            return response.data;
+            }, function(response) {
+            // something went wrong
+            console.log('error');
+            return response.data;
+            });
+        },
+
+                   verificarEncuesta:function( idUsuario){  
+
+            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/verificarEncuesta',{idUsuario:idUsuario })
+            .then(function(response) {
+            console.log(response);
+            return response.data;
+            }, function(response) {
+            // something went wrong
+            console.log('error');
+            return response.data;
+            });
+        },
+
+
+                   getEncuesta:function( idModulo, idDiplomado){  
+
+            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/getEncuesta',{idModulo:idModulo, idDiplomado:idDiplomado })
+            .then(function(response) {
+            console.log(response);
+            return response.data;
+            }, function(response) {
+            // something went wrong
+            console.log('error');
+            return response.data;
+            });
+        },
+
+            enviarEncuesta:function( idModulo, idDiplomado, idUsuario, idEncuesta, secciones,comentario){  
+
+            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/enviarEncuesta',{idModulo:idModulo,
+                                                                                     idDiplomado:idDiplomado,
+                                                                                     idUsuario:idUsuario,
+                                                                                     idEncuesta:idEncuesta,
+                                                                                     secciones: secciones,
+                                                                                     comentario:comentario})
+            .then(function(response) {
+            console.log(response);
+            return response.data;
+            }, function(response) {
+            // something went wrong
+            console.log('error');
+            return response.data;
+            });
+        },
+
+
+            getDiplomados:function(idMaestria){  
+
+            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/getDiplomados',{idMaestria:idMaestria })
+            .then(function(response) {
+            console.log(response);
+            return response.data;
+            }, function(response) {
+            // something went wrong
+            console.log('error');
+            return response.data;
+            });
+        },
+                    getModulos:function(idDiplomado){  
+
+            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/getModulos',{idDiplomado:idDiplomado })
+            .then(function(response) {
+            console.log(response);
+            return response.data;
+            }, function(response) {
+            // something went wrong
+            console.log('error');
+            return response.data;
+            });
+        },
+
+                            getMaestriaDiplomado:function(idDiplomado, idMaestria){  
+
+            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/getMaestriaDiplomado',{idDiplomado:idDiplomado,idMaestria:idMaestria })
+            .then(function(response) {
+            console.log(response);
+            return response.data;
+            }, function(response) {
+            // something went wrong
+            console.log('error');
+            return response.data;
+            });
+        },
+
+          getNotaTesis:function(idUsuario, idMaestria){  
+
+            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/getNotaTesis',{idUsuario:idUsuario, idMaestria:idMaestria })
+            .then(function(response) {
+            console.log(response);
+            return response.data;
+            }, function(response) {
+            // something went wrong
+            console.log('error');
+            return response.data;
+            });
+        },
+
+           getNotificaciones:function(idUsuario){  
+
+            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/getNotificaciones',{idUsuario:idUsuario})
+            .then(function(response) {
+            console.log(response);
+            return response.data;
+            }, function(response) {
+            // something went wrong
+            console.log('error');
+            return response.data;
+            });
+        },
+
+                   getNotificacionesCount:function(idUsuario){  
+
+            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/getNotificacionesCount',{idUsuario:idUsuario})
+            .then(function(response) {
+            console.log(response);
+            return response.data;
+            }, function(response) {
+            // something went wrong
+            console.log('error');
+            return response.data;
+            });
+        },
+
+        
+
+                  actualizarNoti:function(idNoti){  
+
+            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/actualizarNoti',{idNoti:idNoti})
+            .then(function(response) {
+            console.log(response);
+            return response.data;
+            }, function(response) {
+            // something went wrong
+            console.log('error');
+            return response.data;
+            });
+        },
+
+
+
+            getModuloInfo:function(idModulo,idUsuario, idDiplomado){  
+
+            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/getModuloInfo',{idModulo:idModulo, idUsuario:idUsuario, idDiplomado:idDiplomado })
+            .then(function(response) {
+            console.log(response);
+            return response.data;
+            }, function(response) {
+            // something went wrong
+            console.log('error');
+            return response.data;
+            });
+        }
+        
+
+
+
+
     }
 
-  }
-}]);
+    })
+
+

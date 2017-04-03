@@ -13,7 +13,7 @@
     margin-top: 8px;
     color: #fafafa;' class="button  button-clear ion-navicon-round" menu-toggle="right">
                 </button>
-                    <div style="     position: absolute;
+                             <div ng-show='not > 0' ng-controller='getNotiCtrl' style="     position: absolute;
     top: 0;
     left: 0;
     margin-left: 52px;
@@ -25,7 +25,7 @@
     line-height: 1.7;
     border-radius: 100%;
     color: #0958e9;
-    font-size: 15px;"><strong>2</strong></div>
+    font-size: 15px;"><strong>{{not}}</strong></div>
                 </div>
             </ion-nav-buttons>
 
@@ -41,7 +41,7 @@
 
     <div class='encabezadoDiv'>
       <span class='encabezadoNombre'>Bienvenido</span>
-      <div class='nombreEstudiante' >Marcelo <br> Daponte <br> Gonzalves</div>
+      <div class='nombreEstudiante' >{{nombreAlumno}}</div>
     </div>
 
     <div class='nombreSeccion'>
@@ -49,8 +49,8 @@
             Email
         </div>
         <div class='cuentaContent'>
-          mdaponte@viapro.com
-          <img src="img/edit.png">
+          {{emailAlumno}}
+          
         </div>
     </div>
 
@@ -59,8 +59,8 @@
             Numero de CI
         </div>
         <div class='cuentaContent'>
-          1234567
-          <img src="img/edit.png">
+          {{idUsuario}}
+         
         </div>
     </div>
 
@@ -68,9 +68,9 @@
         <div class='cuentaTitulo'>
             Celular
         </div>
-        <div class='cuentaContent'>
-          +595 (951) 123456
-          <img src="img/edit.png">
+        <div  class='cuentaContent'>
+          {{telefono}}
+         <!--  <img ng-click='editarTelefono()' src="img/edit.png"> -->
         </div>
     </div>
 
@@ -79,13 +79,20 @@
             Notificaciones
         </div>
         <div class='cuentaContent'>
-         Recibir Notificaciones
-              <label style="float:right" class="toggle toggle-positive">
-              <input type="checkbox">
-              <div class="track">
-              <div class="handle"></div>
-              </div>
-              </label>
+         
+           <li style='  padding-left: 0px;  border: none !important;' class="cuentaContent item item-toggle">
+     Recibir Notificaciones
+
+     <label class="toggle toggle-positive">
+       <input type="checkbox">
+       <div class="track">
+         <div class="handle"></div>
+       </div>
+     </label>
+  </li>
+
+
+   
         </div>
     </div>
     <div style='border-bottom: none' class='nombreSeccion'>
@@ -93,7 +100,10 @@
         <img src="img/head.png" style="
     margin-bottom: 4px;
 "><br>
-        LLAMANOS
+         <a style='    background: white !important;
+    color: #0958e9;
+    border: none !important;
+    box-shadow: none !important; text-decoration: none' href="tel:77777777" class="">LLAMANOS</a> 
         </div>
     </div>
 

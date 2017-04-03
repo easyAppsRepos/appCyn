@@ -3,9 +3,32 @@
     <ion-nav-bar align-title="right" class="bar-blank">
     
 
- <ion-nav-back-button class="button-clear">
-   
-  </ion-nav-back-button>
+             <ion-nav-buttons   side="left">
+            <div ng-controller='mainMenuCtrl' style="background-color: #0958e9;
+    border-radius: 100%; height: 50px;width: 50px;   margin-top: 2px;
+    margin-left: 7px;    text-align: center;
+   ">
+                <button ng-click='openModal("menu.html", "fade-in-right")' style='  font-size: 26px;
+    margin-top: 8px;
+    color: #fafafa;' class="button  button-clear ion-navicon-round" menu-toggle="right">
+                </button>
+                    <div ng-show='not > 0' ng-controller='getNotiCtrl' style="     position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 52px;
+    margin-top: 20px;
+    background-color: orange;
+    height: 25px;
+    width: 25px;
+    text-align: center;
+    line-height: 1.7;
+    border-radius: 100%;
+    color: #0958e9;
+    font-size: 15px;"><strong>{{not}}</strong></div>
+                </div>
+            </ion-nav-buttons>
+
+            
       <ion-nav-title >
      <img class='imagenHeader' src="img/Logo_Azul.png"> 
       </ion-nav-title>
@@ -16,28 +39,28 @@
     
 
     <div class='encabezadoDiv' >
-      <span class='encabezadoNombre'>Marcelo Daponte Gonzalves</span>
+      <span class='encabezadoNombre'>{{nombreAlumno}}</span>
    
     </div>
 
     <div class='notificacionesContent nombreSeccion '>
     <span>Mensajes</span>
 
-      <div ion-ripple class='notiDiv noLeida'>
-        <p class="encabezadoNoti">Esta tu nota de calificaciones de modulo!</p>
-        <p class="cuerpoNoti">Para conocer el resultado debes de ponerte al dia con tu cuota</p>
-        <p class="accionNoti">Pasar por administracion</p>
+      <div ion-ripple ng-class="{noLeida : n.estado=='1', leida : n.estado!=='1'}" class='notiDiv' ng-repeat='n in notificaciones' ng-click='leerNoti(n.idNotificacion, n.estado)' >
+        <p class="encabezadoNoti">{{n.titulo}}</p>
+        <p class="cuerpoNoti">{{n.descripcion}}</p>
+        <p class="accionNoti">{{n.accionTitulo}}</p>
 
-        <div class="identificador"></div>
+        <div ng-show='n.estado=="1"' class="identificador"></div>
 
       </div>
 
-
+<!-- 
       <div ion-ripple class='notiDiv noLeida'>
-        <p class="encabezadoNoti">Esta tu nota de calificaciones de modulo!</p>
-        <p class="cuerpoNoti">Para conocer el resultado debes completar la encuesta de calidad de modulo</p>
-        <p class="accionNoti">Ir a la encuesta</p>
- <div class="identificador"></div>
+          <p class="encabezadoNoti">Esta tu nota de calificaciones de modulo!</p>
+          <p class="cuerpoNoti">Para conocer el resultado debes completar la encuesta de calidad de modulo</p>
+          <p class="accionNoti">Ir a la encuesta</p>
+          <div class="identificador"></div>
       </div>
 
 
@@ -46,7 +69,7 @@
         <p class="cuerpoNoti">Pasa por la administracion para solicitar fecha de la primera oportunidad</p>
         <p class="accionNoti">Tenes 60 dias a partir de hoy</p>
 
-      </div>
+      </div> -->
 
 
     </div>

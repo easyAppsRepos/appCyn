@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers','directives', 'ionMDRipple'])
+angular.module('starter', ['ionic', 'starter.controllers','starter.services' ,'directives', 'ionMDRipple'])
 
 .run(function($ionicPlatform, $rootScope) {
 
@@ -14,6 +14,12 @@ angular.module('starter', ['ionic', 'starter.controllers','directives', 'ionMDRi
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
+
+          $ionicPlatform.registerBackButtonAction(function (event) {
+            event.preventDefault();
+        }, 100);
+
+          
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
@@ -28,12 +34,20 @@ angular.module('starter', ['ionic', 'starter.controllers','directives', 'ionMDRi
 
 })
 
-.constant('$ionicLoadingConfig', {
-  template: "<ion-spinner></ion-spinner>",
-  hideOnStateChange : false
-})
+ .constant("serverConfig", {
+        "url": "http://viaprod.tribu.com.py:5180",
+        //"port": "80"
+    })
 
-.config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
+
+
+.config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider, $httpProvider) {
+
+   $httpProvider.defaults.headers.common = {};
+  $httpProvider.defaults.headers.post = {};
+  $httpProvider.defaults.headers.put = {};
+  $httpProvider.defaults.headers.patch = {};
+  
 
     $ionicConfigProvider.backButton.text("Volver");
      $ionicConfigProvider.backButton.icon('my-back-button');
@@ -60,7 +74,7 @@ angular.module('starter', ['ionic', 'starter.controllers','directives', 'ionMDRi
     })
 
         .state('internaMaestria', {
-      url: '/internaMaestria',
+      url: '/internaMaestria/:idMaestria',
       templateUrl: 'templates/internaMaestria.html',
       controller: "internaMaestriaCtrl"
     })
@@ -80,6 +94,13 @@ angular.module('starter', ['ionic', 'starter.controllers','directives', 'ionMDRi
     })
 
 
+                .state('generarPIN', {
+      url: '/generarPIN',
+      templateUrl: 'templates/generarPIN.html',
+      controller: "generarPINCtrl"
+    })
+
+
 
         .state('notificaciones', {
       url: '/notificaciones',
@@ -90,40 +111,40 @@ angular.module('starter', ['ionic', 'starter.controllers','directives', 'ionMDRi
 
 
                 .state('internaModuloMaestria', {
-      url: '/internaModuloMaestria',
+      url: '/internaModuloMaestria/:idMaestria/:idDiplomado',
       templateUrl: 'templates/internaModuloMaestria.html',
       controller: "internaModuloMaestriaCtrl"
     })
 
         .state('internaModuloDiplomado', {
-      url: '/internaModuloDiplomado',
+      url: '/internaModuloDiplomado/:idDiplomado',
       templateUrl: 'templates/internaModuloDiplomado.html',
       controller: "internaModuloDiplomadoCtrl"
     })
 
 
                 .state('notaMaestria', {
-      url: '/notaMaestria',
+      url: '/notaMaestria/:idDiplomado/:idMaestria/:idModulo',
       templateUrl: 'templates/notaMaestria.html',
       controller: "notaMaestriaCtrl"
     })
 
                 .state('encuesta', {
-      url: '/encuesta',
+      url: '/encuesta/:idModulo/:idDiplomado',
       templateUrl: 'templates/encuesta.html',
       controller: "encuestaCtrl"
     })
 
 
      .state('notaTesis', {
-      url: '/notaTesis',
+      url: '/notaTesis/:idMaestria',
       templateUrl: 'templates/notaTesis.html',
       controller: "notaTesisCtrl"
     })
 
 
                 .state('notaDiplomado', {
-      url: '/notaDiplomado',
+      url: '/notaDiplomado/:idModulo/:idDiplomado',
       templateUrl: 'templates/notaDiplomado.html',
       controller: "notaDiplomadoCtrl"
     })
@@ -148,6 +169,24 @@ angular.module('starter', ['ionic', 'starter.controllers','directives', 'ionMDRi
 
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/login');
+
+
+          if(localStorage.getItem('userInfoVIA') == null || 
+            localStorage.getItem('userInfoVIA') == 'null' || 
+            localStorage.getItem('userInfoVIA') == 'undefined' || 
+            localStorage.getItem('userInfoVIA') == undefined){
+
+        //console.log(localStorage.getItem('userInfoTS'));
+      $urlRouterProvider.otherwise('/login');
+
+        }
+        else{
+           // console.log(localStorage.getItem('userInfoTS'));
+        $urlRouterProvider.otherwise('/');
+        // $urlRouterProvider.otherwise("/login");
+        }
+
+
+
 
 });

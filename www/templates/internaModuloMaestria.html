@@ -17,7 +17,7 @@
 
     <div class='encabezadoDiv' >
       <span class='encabezadoNombre'>Estado Academico Modulo</span>
-      <div class='nombreEstudiante'>Marcelo <br> Daponte <br> Gonzalves</div>
+      <div class='nombreEstudiante'>{{nombreAlumno}}</div>
     </div>
 
 
@@ -30,18 +30,18 @@
 
       <div class="divSeccionContent">
         <p>Maestria</p>
-        <p>Adminstracion de negocios inmobiliarios (MAN)</p>
+        <p>{{nombreMaestria}}</p>
       </div>
 
     </div>
 
     <div class='sliderDiv'>
       <p>Diplomado</p>
-      <p>2. Alta gerencia financiera</p>
+
       <div class='sliderContainer'>
         <i ng-click='nextSlide()' class="ion-chevron-right"></i>
         <i ng-click='prevSlide()' class="ion-chevron-left"></i> 
-      <data-date-slider-picker style='z-index: 5' >
+      <data-date-slider-picker style='z-index: 5' cantidad='idMaestria' diplo='idDiplomado' tipo=1>
       </data-date-slider-picker>
       </div>
     </div>
@@ -55,28 +55,59 @@
 
 
 
- <div class='divContentListItem'>
+ <div class='divContentListItem' ng-repeat='m in modulos' ng-click='verificarEncuesta(m.idModulo)'  >
 
       <div style="   vertical-align: middle; width: 70%;display: inline-block;">
-      <span style="color:darkgray;font-size: 19px;">1. Seguridad y riesgos</span>
+      <span style="color:darkgray;font-size: 19px;">{{m.orden}}. {{m.nombre}}</span>
 
       </div>
 
-      <div ui-sref='notaMaestria' style="    color: #0958e9;
+      <div ng-show='m.nota !== null'  style="    color: #0958e9;
     vertical-align: middle;
     font-size: 36px;
     text-align: center;
     width: 25%;
     display: inline-block;
-    line-height: 2;">5  <i style='    color: darkgray;
+    line-height: 2;">{{m.nota}}<i style='    color: darkgray;
     right: 0px;
     position: absolute;
     margin-right: 20px;
     font-size: 28px;
-    margin-top: 8px;' class="icon ion-ios-arrow-right"></i></div>
+    margin-top: 8px;' class="icon ion-ios-arrow-right"></i>
+    </div>
+
+      <div ng-show='m.estado == 1'  style="    color: #0958e9;
+    vertical-align: middle;
+    font-size: 36px;
+    text-align: center;
+    width: 25%;
+    display: inline-block;
+    line-height: 2;">
+    <div class="estadoCursando"   style="    
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;">
+      
+    </div>
+
+    <i style='    color: darkgray;
+    right: 0px;
+    position: absolute;
+    margin-right: 20px;
+    font-size: 28px;
+    margin-top: 8px;' class="icon ion-ios-arrow-right"></i>
+    </div>
+
+
+          <div ng-show='m.estado == null'  style="    margin-left: 3%;color:darkgray;vertical-align: middle;font-size: 25px;text-align: center;width: 25%;display: inline-block;line-height: 2;"><strong>-</strong>  <i  style='margin-left: 4px;
+    color: darkgray; float:right;' class="icon ion-ios-arrow-right"></i></div>
+
  </div>
 
-
+<!-- 
 
 
  <div class='divContentListItem'>
@@ -202,7 +233,7 @@
     font-size: 28px;
     margin-top: 8px;' class="icon ion-ios-arrow-right"></i></div>
  </div>
-
+ -->
 
 
 

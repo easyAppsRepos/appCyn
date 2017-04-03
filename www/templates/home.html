@@ -18,7 +18,7 @@
     margin-top: 8px;
     color: #fafafa;' class="button  button-clear ion-navicon-round" menu-toggle="right">
                 </button>
-                    <div style="     position: absolute;
+                    <div ng-show='not > 0' ng-controller='getNotiCtrl' style="     position: absolute;
     top: 0;
     left: 0;
     margin-left: 52px;
@@ -30,7 +30,7 @@
     line-height: 1.7;
     border-radius: 100%;
     color: #0958e9;
-    font-size: 15px;"><strong>2</strong></div>
+    font-size: 15px;"><strong>{{not}}</strong></div>
                 </div>
             </ion-nav-buttons>
 
@@ -46,18 +46,18 @@
 
     <div class='encabezadoDiv'>
       <span class='encabezadoNombre'>Bienvenido</span>
-      <div class='nombreEstudiante'>Marcelo <br> Daponte <br> Gonzalves</div>
+      <div class='nombreEstudiante' >{{nombreAlumno}}</div>
     </div>
 
 
-    <div style="   margin-top: 15px; margin-left: 12px;
+    <div ng-show='ExisteMaestria' style="   margin-top: 15px; margin-left: 12px;
     margin-right: 12px;    padding-bottom: 18px;
     border-bottom: solid 1px rgba(211, 211, 211, 0.54);">
 
       <div style="   vertical-align: middle; width: 69%;display: inline-block;">
       <span style="color:#849c00; font-size:26px">Maestria</span>
-      <p style="    color: darkgray;font-size:18px" >Adminstracion de negocios inmobiliarios (MAN)</p>
-      <button ui-sref='internaMaestria' style="    background-color: transparent;
+      <p style="    color: darkgray;font-size:18px" >{{maestria.nombre}}</p>
+      <button ui-sref='internaMaestria({idMaestria: maestria.id})' style="    background-color: transparent;
     border: solid 1px lightgray ;    color: darkgray;
     line-height: 20px;
     border-radius: 35px;
@@ -65,7 +65,7 @@
     padding-right: 15px;    min-height: 20px;" class="button button-clear">ver mas</button>
       </div>
 
-      <div style="  color:#849c00;font-size: 40px;   text-align: center;   width: 29%;display: inline-block;line-height: 2;">75 <span style="font-size: 30px;position: absolute;margin-top: 5px;">%</span></div>
+      <div style="  color:#849c00;font-size: 40px;   text-align: center;   width: 29%;display: inline-block;line-height: 2;">{{maestria.porcentaje}} <span style="font-size: 30px;position: absolute;margin-top: 5px;">%</span></div>
 
 
 
@@ -76,14 +76,14 @@
 
 
 
-        <div style="   margin-top: 15px; margin-left: 12px;
+        <div ng-show='ExisteDiplomado' style="   margin-top: 15px; margin-left: 12px;
     margin-right: 12px;    padding-bottom: 18px;
     border-bottom: solid 1px rgba(211, 211, 211, 0.54);">
 
       <div style="   vertical-align: middle; width: 69%;display: inline-block;">
       <span style="color:#a87619; font-size:26px">Diplomado</span>
-      <p style="    color: darkgray;font-size:18px" >2. Alta Gerencia financiera</p>
-      <button ui-sref='internaModuloMaestria' style="    background-color: transparent;
+      <p style="    color: darkgray;font-size:18px" >{{diplomado.nombre}}</p>
+      <button ng-click='verMasDiplomado()' style="    background-color: transparent;
     border: solid 1px lightgray ;    color: darkgray;
     line-height: 20px;
     border-radius: 35px;
@@ -91,21 +91,21 @@
     padding-right: 15px;    min-height: 20px;" class="button">ver mas</button>
       </div>
 
-      <div style="  color:#a87619;font-size: 40px;   text-align: center;   width: 29%;display: inline-block;line-height: 2;">50<span style="font-size: 30px;position: absolute;margin-top: 5px;">%</span></div>
+      <div style="  color:#a87619;font-size: 40px;   text-align: center;   width: 29%;display: inline-block;line-height: 2;">{{diplomado.porcentaje}}<span style="font-size: 30px;position: absolute;margin-top: 5px;">%</span></div>
 
 
 
     </div>
 
 
-            <div style="   margin-top: 15px; margin-left: 12px;
+            <div ng-show='existeModulo' style="   margin-top: 15px; margin-left: 12px;
     margin-right: 12px;    padding-bottom: 18px;
     border-bottom: solid 1px rgba(211, 211, 211, 0.54);">
 
       <div style="   vertical-align: middle; width: 69%;display: inline-block;">
       <span style="color:#0958e9; font-size:26px">Modulo</span>
-      <p style="    color: darkgray;font-size:18px" >6. Iniciativas de gestion Emprendedoras</p>
-      <button ui-sref='internaModuloDiplomado' style="    background-color: transparent;
+      <p style="    color: darkgray;font-size:18px" >{{modulo.nombre}}</p>
+      <button ng-click='verificarEncuesta()' style="    background-color: transparent;
     border: solid 1px lightgray ;    color: darkgray;
     line-height: 20px;
     border-radius: 35px;
@@ -115,7 +115,7 @@
 
       <div style="  color:#a87619;font-size: 40px;   text-align: center;   width: 29%;display: inline-block;line-height: 2;">
 
-      <div style="    background-color: #849c00;
+      <div ng-class="{'estadoCursando': modulo.estado == 'Cursando', 'estadoPendiente': modulo.estado == 'Pendiente'}"  style="    
     height: 45px;
     width: 45px;
     border-radius: 40px;
@@ -131,14 +131,14 @@
 
 
 
-        <div style="   margin-top: 15px; margin-left: 12px;
+        <div ng-show='existeTesis'  style="   margin-top: 15px; margin-left: 12px;
     margin-right: 12px;    padding-bottom: 18px;
     border-bottom: solid 1px rgba(211, 211, 211, 0.54);">
 
       <div style="   vertical-align: middle; width: 69%;display: inline-block;">
       <span style="color:#333; font-size:26px">Tesis</span>
-      <p style="    color: darkgray;font-size:27px" >PENDIENTE</p>
-      <button ui-sref='notaTesis' style="    background-color: transparent;
+      <p style="    color: darkgray;font-size:27px" >{{tesis.estado}}</p>
+      <button ui-sref='notaTesis({idMaestria: maestria.id})' style="    background-color: transparent;
     border: solid 1px lightgray ;    color: darkgray;
     line-height: 20px;
     border-radius: 35px;
@@ -146,7 +146,7 @@
     padding-right: 15px;    min-height: 20px;" class="button">ver mas</button>
       </div>
 
-      <div style="  color:darkgray;font-size: 40px;   text-align: center;   width: 29%;display: inline-block;line-height: 2;">0<span style="font-size: 30px;position: absolute;margin-top: 5px;">%</span></div>
+      <div style="  color:darkgray;font-size: 40px;   text-align: center;   width: 29%;display: inline-block;line-height: 2;">{{tesis.avance}}<span style="font-size: 30px;position: absolute;margin-top: 5px;">%</span></div>
 
 
 
