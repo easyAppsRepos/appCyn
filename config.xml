@@ -67,12 +67,12 @@
  <splash src="splash.png" />
 
   
-    <splash src="res/splash/android/200x320.png" platform="android" density="port-ldpi"/>
-    <splash src="res/splash/android/320x480.png" platform="android" density="port-mdpi"/>
-    <splash src="res/splash/android/480x800.png" platform="android" density="port-hdpi"/>
-    <splash src="res/splash/android/720x1280.png" platform="android"  density="port-xhdpi"/>
-    <splash src="res/splash/android/960x1600.png" platform="android" density="port-xxhdpi"/>
-    <splash src="res/splash/android/1280x1920.png" platform="android" density="port-xxxhdpi"/>
+    <splash src="res/splash/android/200x320.jpg" platform="android" density="port-ldpi"/>
+    <splash src="res/splash/android/320x480.jpg" platform="android" density="port-mdpi"/>
+    <splash src="res/splash/android/480x800.jpg" platform="android" density="port-hdpi"/>
+    <splash src="res/splash/android/720x1280.jpg" platform="android"  density="port-xhdpi"/>
+    <splash src="res/splash/android/960x1600.jpg" platform="android" density="port-xxhdpi"/>
+    <splash src="res/splash/android/1280x1920.jpg" platform="android" density="port-xxxhdpi"/>
 
 
 
