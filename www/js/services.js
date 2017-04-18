@@ -20,6 +20,18 @@ angular.module('starter.services', [])
 
 
 
+        editarNoti:function(idUsuario, not){  
+
+            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/editarNoti',{idUsuario:idUsuario, not:not})
+            .then(function(response) {
+            console.log(response);
+            return response.data;
+            }, function(response) {
+            // something went wrong
+            console.log('error');
+            return response.data;
+            });
+        },
 
         editarTelefono:function(idUsuario, tel){  
 

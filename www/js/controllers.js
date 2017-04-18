@@ -220,6 +220,7 @@ $scope.editando = false;
     $scope.emailAlumno=  userData.email;
       $scope.telefono=  parseInt(userData.telefono);
         $scope.notis=  userData.noti;
+        $scope.not=  userData.nots == 1 ? true: false;
 
 console.log(userData);
 
@@ -228,6 +229,39 @@ console.log(userData);
 
 
  
+  $scope.actu = function(d){
+ console.log(d);
+var val = d == true ? 1 : 0;
+console.log(val);
+console.log(userData.idAlumno);
+
+
+       api.editarNoti(userData.idAlumno, val).then(function(data) {
+     
+      console.log(data);
+     
+      if(data==null){
+      //mensajeAlerta('Ha ocurrido un error, verifique su conexion a internet'); return false;
+      console.log('ha ocurrido un error' );
+       $ionicLoading.hide();
+      return false;
+      }
+      if(data.error){
+      console.log('ha ocurrido un error' );
+       $ionicLoading.hide();
+      }
+      else{
+
+        //userData.not = d == true ? 1 : 0;
+        window.localStorage.setItem( 'userInfoVIA', JSON.stringify(userData));
+       $ionicLoading.hide();
+
+      }
+      });
+
+
+
+  }
 
   $scope.editarTelefono = function(){
  console.log('dd');
