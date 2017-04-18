@@ -62,7 +62,7 @@
 <icon src="res/icon/android/72x72.png" platform="android" qualifier="hdpi" />
 <icon src="res/icon/android/96x96.png" platform="android" qualifier="xhdpi" />
 <icon src="res/icon/android/144x144.png" platform="android" qualifier="xxhdpi" />
-<icon src="res/icon/android/192x192.png" platform="android" qualifier="fr-xxhdpi" /<name />
+<icon src="res/icon/android/192x192.png" platform="android" qualifier="fr-xxhdpi"/>
 
 
   
