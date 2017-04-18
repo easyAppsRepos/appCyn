@@ -64,6 +64,7 @@
 <icon src="res/icon/android/144x144.png" platform="android" qualifier="xxhdpi" />
 <icon src="res/icon/android/192x192.png" platform="android" qualifier="fr-xxhdpi"/>
 
+ <splash src="splash.jpg" />
 
   
     <splash src="res/splash/android/200x320.jpg" platform="android" density="port-ldpi"/>
