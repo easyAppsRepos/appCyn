@@ -50,7 +50,7 @@
     </div>
 
 
-    <div ng-show='ExisteMaestria' style="   margin-top: 15px; margin-left: 12px;
+    <div ng-show='ExisteMaestria' ui-sref='internaMaestria({idMaestria: maestria.id})' style="   margin-top: 15px; margin-left: 12px;
     margin-right: 12px;    padding-bottom: 18px;
     border-bottom: solid 1px rgba(211, 211, 211, 0.54);">
 
@@ -76,7 +76,7 @@
 
 
 
-        <div ng-show='ExisteDiplomado' style="   margin-top: 15px; margin-left: 12px;
+        <div ng-show='ExisteDiplomado' ng-click='verMasDiplomado()' style="   margin-top: 15px; margin-left: 12px;
     margin-right: 12px;    padding-bottom: 18px;
     border-bottom: solid 1px rgba(211, 211, 211, 0.54);">
 
@@ -98,7 +98,7 @@
     </div>
 
 
-            <div ng-show='existeModulo' style="   margin-top: 15px; margin-left: 12px;
+            <div ng-show='existeModulo' ng-click='verificarEncuesta()' style="   margin-top: 15px; margin-left: 12px;
     margin-right: 12px;    padding-bottom: 18px;
     border-bottom: solid 1px rgba(211, 211, 211, 0.54);">
 
@@ -131,7 +131,7 @@
 
 
 
-        <div ng-show='existeTesis'  style="   margin-top: 15px; margin-left: 12px;
+        <div ng-show='existeTesis' ui-sref='notaTesis({idMaestria: maestria.id})'  style="   margin-top: 15px; margin-left: 12px;
     margin-right: 12px;    padding-bottom: 18px;
     border-bottom: solid 1px rgba(211, 211, 211, 0.54);">
 

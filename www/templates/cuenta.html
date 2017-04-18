@@ -69,8 +69,17 @@
             Celular
         </div>
         <div  class='cuentaContent'>
-          {{telefono}}
-         <!--  <img ng-click='editarTelefono()' src="img/edit.png"> -->
+
+          <input ng-disabled='!editando' ng-class='{"editandoInput":editando}'  style='    display: inline-block;
+    background: white;
+    color: darkgray;
+    font-family: Ubuntu;
+    font-size: 18px;' ng-model='telefono' type="number">
+
+
+           <img style='    margin-top: 0px;' ng-show='!editando'  ng-click='editarTelefono()' src="img/edit.png">
+           <img style='      margin-top: 0px;  height: 34px;' ng-show='editando' ng-click='guardarEdicion(telefono)' src="img/guardar.png">
+
         </div>
     </div>
 

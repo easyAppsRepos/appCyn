@@ -41,6 +41,12 @@ $scope.not = data.num;
   $ionicLoading.show();
   $scope.detalleIM={};
 
+$scope.goBack = function(){
+
+
+}
+
+
   var userData = JSON.parse(window.localStorage.getItem('userInfoVIA'));
   $scope.nombreAlumno=  userData.nombre;
   $scope.idMaestria = $stateParams.idMaestria;
@@ -200,16 +206,19 @@ console.log(userData.idAlumno);
       var userData = JSON.parse(window.localStorage.getItem('userInfoVIA'));
   $scope.nombreAlumno=  userData.nombre;
     $scope.emailAlumno=  userData.email;
-      $scope.telefono=  userData.telefono;
+      $scope.telefono=  parseInt(userData.telefono);
         $scope.notis=  userData.noti;
+        console.log(userData);
     });
 
+$scope.editando = false;
 
+     // window.localStorage.setItem( 'userInfoVIA', JSON.stringify(data));
 
       var userData = JSON.parse(window.localStorage.getItem('userInfoVIA'));
   $scope.nombreAlumno=  userData.nombre;
     $scope.emailAlumno=  userData.email;
-      $scope.telefono=  userData.telefono;
+      $scope.telefono=  parseInt(userData.telefono);
         $scope.notis=  userData.noti;
 
 console.log(userData);
@@ -222,15 +231,53 @@ console.log(userData);
 
   $scope.editarTelefono = function(){
  console.log('dd');
+$scope.editando = true;
+  }
+
+
+  $scope.guardarEdicion = function(e){
+ console.log(e);
+
+
+      $ionicLoading.show();
+      api.editarTelefono(userData.idAlumno, e).then(function(data) {
+     
+      console.log(data);
+     
+      if(data==null){
+      //mensajeAlerta('Ha ocurrido un error, verifique su conexion a internet'); return false;
+      console.log('ha ocurrido un error' );
+       $ionicLoading.hide();
+      return false;
+      }
+      if(data.error){
+      console.log('ha ocurrido un error' );
+       $ionicLoading.hide();
+      }
+      else{
+
+        userData.telefono = e;
+        window.localStorage.setItem( 'userInfoVIA', JSON.stringify(userData));
+
+        $scope.editando = false;
+        
+       $ionicLoading.hide();
+      }
+      });
 
   }
 
 
 
-
     })
 
-.controller('homeCtrl', function(  $scope, $ionicLoading, $rootScope, $state,$ionicSlideBoxDelegate, api) {
+
+
+.controller('mapaCtrl', function(  $scope, $ionicLoading, $ionicModal, $rootScope, $state,$ionicSlideBoxDelegate, api) {
+
+
+})
+.controller('homeCtrl', function(  $scope, $ionicLoading, $ionicModal, $rootScope, $state,$ionicSlideBoxDelegate, api) {
   
 
       $scope.$on('$ionicView.enter', function(){ //This is fired twice in a row
@@ -285,6 +332,13 @@ console.log(userData);
               $scope.diplomado.porcentaje = data.porcentajeDiplomado;
 
 
+          if($scope.diplomado.porcentaje==100){
+             $scope.openModal('retiraCertificado.html', 'slide-in-down');
+            //mostrarFel
+          }
+
+
+
 
           }
           else{
@@ -310,10 +364,21 @@ console.log(userData);
           $scope.maestria.id=data.idMaestria;
           $scope.maestria.porcentaje = data.porcentajeMaestria;
 
+          if($scope.maestria.porcentaje==50){
+             $scope.openModal('retiraCertificado.html', 'slide-in-down');
+            //mostrarFel
+          }
+
           $scope.ExisteDiplomado=true;
           $scope.diplomado.nombre=data.nombreDiplomado;
           $scope.diplomado.id=data.idDiplomado;
           $scope.diplomado.porcentaje = data.porcentajeDiplomado;
+
+        if($scope.diplomado.porcentaje==100){
+             $scope.openModal('retiraCertificado.html', 'slide-in-down');
+            //mostrarFel
+          }
+
 
             if(data.modulo){
                 $scope.existeModulo=true;
@@ -387,6 +452,39 @@ else{ $state.go('internaModuloDiplomado',{idDiplomado:$scope.diplomado.id}) }
        }
 
 
+
+  $scope.modalClasses = ['slide-in-up', 'slide-in-down', 'fade-in-scale', 'fade-in-right', 'fade-in-left', 'newspaper', 'jelly', 'road-runner', 'splat', 'spin', 'swoosh', 'fold-unfold'];
+
+  $scope.openModal = function(templateName,animation) {
+    $ionicModal.fromTemplateUrl(templateName, {
+      scope: $scope,
+      animation: animation
+    }).then(function(modal) {
+      $scope.modal = modal;
+      $scope.modal.show();
+    });
+  };
+
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+  //Cleanup the modal when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.modal.remove();
+  });
+  // Execute action on hide modal
+  $scope.$on('modal.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove modal
+  $scope.$on('modal.removed', function() {
+    // Execute action
+  });
+
+
+
+
+
     })
 
 .controller('loginCtrl', function(  $scope, $ionicLoading, $rootScope, $ionicPopup, $state,$ionicSlideBoxDelegate, api) {
@@ -441,9 +539,11 @@ mensajeAlerta('Credenciales incompletas',false);
         }
         else{
 
+          //console.log(data);
+
           if(data.noti>0){ 
             window.localStorage.setItem( 'userInfoVIA', JSON.stringify(data));
-            $state.go('notificaciones');
+            $state.go('notificaciones');       
 
           }
           else{
@@ -741,7 +841,7 @@ $scope.closeModal();
 
 
     $scope.retiraCertificado = function(){
-$scope.closeModal();
+      $scope.closeModal();
       $scope.openModal('retiraCertificado.html', 'slide-in-down');
 
   }

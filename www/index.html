@@ -57,7 +57,7 @@
 
           <div>No tiene encuestas <br> pendientes</div>
           <img src="img/excla.png">
-           <div class='divButtonEncuesta'> <button ion-ripple class="">Volver</button></div>
+           <div class='divButtonEncuesta'> <button ng-click="closeModal()"  ion-ripple class="">Volver</button></div>
                <i ng-click="closeModal()" class="ion-android-cancel"></i>
       </div>
       </ion-content>
@@ -78,7 +78,7 @@
     margin-top: 7px;">RETIRA TU CERTIFICADO </div>
 
           <img style='height: 120px' src="img/like2.png">
-           <div class='divButtonEncuesta'> <button ion-ripple class="">Llamanos</button></div>
+           <div class='divButtonEncuesta'> <button href="tel:77777777" ion-ripple class="">Llamanos</button></div>
                <i ng-click="closeModal()" class="ion-android-cancel"></i>
       </div>
       </ion-content>
@@ -106,13 +106,13 @@
     <div style="font-family: UbuntuB;
     font-size: 18px;
     margin-top: 20px; margin-bottom:5px">Colon N838 e/Humaita y <br> Pribebuy, Asuncion, Paraguay</div>
-    <a>VER GOOGLE MAPS</a>  
+    <a href="geo:38.897096,-77.036545" >VER GOOGLE MAPS</a>  
 
     <div style="    margin-top: 22px;
     font-size: 19px;
     line-height: 27px;
-    font-family: UbuntuL;">Telefonos y fax: <br> <a>+595 21 443 900</a> <br> <a>+595 21 328 6043</a> <br> 
-    <a>+595 961 295 311</a></div>
+    font-family: UbuntuL;">Telefonos y fax: <br> <a href="tel:+59521443900" >+595 21 443 900</a> <br> <a  href="tel:595213286043">+595 21 328 6043</a> <br> 
+    <a href="tel:595961295311" >+595 961 295 311</a></div>
 
     <div style='    margin-top: 22px;
     font-size: 19px;
@@ -147,7 +147,7 @@
     padding-top: 0px !important;
     line-height: 1.6;
     margin-top: -3px;"><strong>2</strong></div> --> </div>
-      <div ng-click='problemasAdministrativos()'>Estado Academico</div>
+<!--       <div ng-click='problemasAdministrativos()'>Estado Academico</div> -->
       <div ng-click='noEncuesta()' >Encuestas</div>
       <div ng-click='goCuenta()'>Cuenta</div>
       <div ng-click='contacto()'>Contacto</div>

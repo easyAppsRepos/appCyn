@@ -48,7 +48,7 @@
         <i style='    opacity: 0.8;
     color: #0958e9;' class="icon ion-ios-arrow-left"></i>
     </div>
-    <div style="color:darkgray;display:inline-block;width: 64%;vertical-align: middle;">
+    <div ui-sref='home' style="color:darkgray;display:inline-block;width: 64%;vertical-align: middle;">
         <p style="font-size: 21px;
             margin-bottom: 0px;">Maestria</p>
         <p style="
@@ -120,9 +120,9 @@
 
     font-family: UbuntuL;">
 
-    <i ng-show='tesis.protocoloEstado == 1' class="ion-checkmark"></i>
+    <i ng-show='tesis.protocoloEstado == 2' class="ion-checkmark"></i>
 
-    <div ng-show='tesis.protocoloEstado != 1'  class="estadoCursando"   style="    
+    <div ng-show='tesis.protocoloEstado == 1'  class="estadoCursando"   style="    
     height: 40px;
     width: 40px;
     border-radius: 40px;
@@ -167,10 +167,10 @@
 
     font-family: UbuntuL;">
 
-    <i ng-show='tesis.avance1Estado == 1' class="ion-checkmark"></i>
+    <i ng-show='tesis.avance1Estado == 2' class="ion-checkmark"></i>
 
 
-    <div ng-show='tesis.avance1Estado != 1'  class="estadoCursando"   style="    
+    <div ng-show='tesis.avance1Estado == 1'  class="estadoCursando"   style="    
     height: 40px;
     width: 40px;
     border-radius: 40px;
@@ -217,10 +217,10 @@
 
     font-family: UbuntuL;">
 
-    <i ng-show='tesis.avance2Estado == 1' class="ion-checkmark"></i>
+    <i ng-show='tesis.avance2Estado == 2' class="ion-checkmark"></i>
 
 
-    <div ng-show='tesis.avance2Estado != 1'  class="estadoCursando"   style="    
+    <div ng-show='tesis.avance2Estado == 1'  class="estadoCursando"   style="    
     height: 40px;
     width: 40px;
     border-radius: 40px;
@@ -265,9 +265,9 @@
 
     font-family: UbuntuL;">
 
-      <i ng-show='tesis.documento == 1' class="ion-checkmark"></i>
+      <i ng-show='tesis.documento == 2' class="ion-checkmark"></i>
 
-    <div ng-show='tesis.documento != 1'  class="estadoCursando"   style="    
+    <div ng-show='tesis.documento == 1'  class="estadoCursando"   style="    
     height: 40px;
     width: 40px;
     border-radius: 40px;
@@ -313,9 +313,12 @@
 
     font-family: UbuntuL;">
 
-    <i ng-show='tesis.defensa == 1' class="ion-checkmark"></i>
+    <i ng-show='tesis.defensa == 2' class="ion-checkmark"></i>
 
-    <div ng-show='tesis.defensa != 1' class="estadoCursando"   style="    
+<div style='    height: 100%;
+    font-size: 40px;' ng-show='tesis.defensa == 0 || tesis.defensa == null || tesis.defensa == "null"'> - </div>
+
+    <div ng-show='tesis.defensa == 1' class="estadoCursando"   style="    
     height: 40px;
     width: 40px;
     border-radius: 40px;

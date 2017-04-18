@@ -229,7 +229,11 @@ margin-top: 18px;
 
 }
 
+.editandoInput{
 
+  border:solid 1px lightgray !important;
+
+}
 
 .divSeccionIcono{
 

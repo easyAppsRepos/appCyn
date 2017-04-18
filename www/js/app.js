@@ -86,6 +86,13 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services' ,'d
       controller: "cuentaCtrl"
     })
 
+                .state('mapa', {
+      url: '/mapa',
+      templateUrl: 'templates/mapa.html',
+      controller: "mapaCtrl"
+    })
+
+
 
                 .state('login', {
       url: '/login',

@@ -19,22 +19,26 @@
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
-  <preference name="SplashScreenDelay" value="2000"/>
-  <preference name="FadeSplashScreenDuration" value="2000"/>
+
+
+
+
+
   <preference name="android-minSdkVersion" value="16"/>
   <preference name="BackupWebStorage" value="none"/>
-  <preference name="SplashScreen" value="screen"/>
-  <feature name="StatusBar">
-    <param name="ios-package" value="CDVStatusBar" onload="true"/>
-  </feature>
+
+
+  <preference name="SplashScreen" value="splash" />
+  <preference name="AutoHideSplashScreen" value="false" />
+  <preference name="SplashScreenDelay" value="4000"/>
+  <preference name="FadeSplashScreenDuration" value="4000"/>
 
 
   <feature name="StatusBar">
-    <param name="ios-package" value="CDVStatusBar" onload="true"/>
-  </feature>
-
-<preference name="StatusBarOverlaysWebView" value="false" />
-<preference name="StatusBarStyle" value="lightcontent" />
+       <param name="ios-package" value="CDVStatusBar" onload="true"/>
+    </feature>
+  <preference name="StatusBarOverlaysWebView" value="false" />
+  <preference name="StatusBarStyle" value="lightcontent" />
 
   <preference name="android-build-tool" value="gradle" />
 
@@ -51,6 +55,24 @@
        <access origin="*" />
 <allow-intent href="*" />
  <allow-navigation href="*" />
+
+<icon src="icon.png" />
+<icon src="res/icon/android/36x36.png" platform="android" qualifier="ldpi" />
+<icon src="res/icon/android/48x48.png" platform="android" qualifier="mdpi" />
+<icon src="res/icon/android/72x72.png" platform="android" qualifier="hdpi" />
+<icon src="res/icon/android/96x96.png" platform="android" qualifier="xhdpi" />
+<icon src="res/icon/android/144x144.png" platform="android" qualifier="xxhdpi" />
+<icon src="res/icon/android/192x192.png" platform="android" qualifier="fr-xxhdpi" /<name />
+
+
+  
+    <splash src="res/splash/android/200x320.jpg" density="port-ldpi"/>
+    <splash src="res/splash/android/320x480.jpg" density="port-mdpi"/>
+    <splash src="res/splash/android/480x800.jpg" density="port-hdpi"/>
+    <splash src="res/splash/android/720x1280.jpg" density="port-xhdpi"/>
+    <splash src="res/splash/android/960x1600.jpg" density="port-xxhdpi"/>
+    <splash src="res/splash/android/1280x1920.jpg" density="port-xxxhdpi"/>
+
 
 
 

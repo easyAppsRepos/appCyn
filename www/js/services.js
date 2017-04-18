@@ -19,6 +19,21 @@ angular.module('starter.services', [])
 
 
 
+
+
+        editarTelefono:function(idUsuario, tel){  
+
+            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/editarTelefono',{idUsuario:idUsuario, tel:tel})
+            .then(function(response) {
+            console.log(response);
+            return response.data;
+            }, function(response) {
+            // something went wrong
+            console.log('error');
+            return response.data;
+            });
+        },
+
         loginAlumno:function(user, pass){  
 
             return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/loginAlumno',{user:user, pass:pass})
