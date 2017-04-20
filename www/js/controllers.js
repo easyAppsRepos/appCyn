@@ -209,6 +209,7 @@ console.log(userData.idAlumno);
       $scope.telefono=  parseInt(userData.telefono);
         $scope.notis=  userData.noti;
         console.log(userData);
+        $scope.numTelPrincipal = window.localStorage.getItem('infoTel1VIA');
     });
 
 $scope.editando = false;
@@ -844,6 +845,37 @@ $scope.closeModal();
 
 
   }
+
+  $scope.getParametros = function(){
+
+    //$scope.parametros={tel1:'222222'};
+ $scope.parametros={};
+                api.getParametros().then(function(data) {
+           //$ionicLoading.show();
+            console.log(data);
+            //$scope.nombreMaestria=data.nombreMaestria;
+            if(data==null){
+            //mensajeAlerta('Ha ocurrido un error, verifique su conexion a internet'); return false;
+            console.log('ha ocurrido un error' );
+            return false;
+            }
+            if(data.error){
+            console.log('ha ocurrido un error' );
+           //  $ionicLoading.hide();
+            }
+            else{
+             $scope.parametros=data.data;
+           //  $ionicLoading.hide();
+           console.log($scope.parametros);
+           console.log($scope.parametros.param1);
+            window.localStorage.setItem( 'infoTel1VIA', $scope.parametros.param3);
+            }
+            });
+
+
+  }
+$scope.getParametros();
+
 
     $scope.goCuenta = function(){
 $scope.closeModal();

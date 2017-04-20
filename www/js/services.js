@@ -16,7 +16,18 @@ angular.module('starter.services', [])
             return response.data.error;
             });
         },
+        getParametros:function(){  
 
+            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/getParametrosApp')
+            .then(function(response) {
+            console.log(response);
+            return response;
+            }, function(response) {
+            // something went wrong
+            console.log('error');
+            return response;
+            });
+        },
 
 
 
