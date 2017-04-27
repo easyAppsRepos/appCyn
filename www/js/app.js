@@ -14,7 +14,7 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services' ,'d
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
-
+ window.open = cordova.InAppBrowser.open;
           $ionicPlatform.registerBackButtonAction(function (event) {
             event.preventDefault();
         }, 100);
