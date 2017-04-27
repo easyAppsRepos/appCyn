@@ -41,6 +41,25 @@
     </ion-nav-bar>
 
 
+
+  <div ng-controller='publiCtrl' ng-show='publicidadActiva' style="      width: 100%;
+    position: absolute;
+    bottom: 0px;
+    height: auto;
+    z-index: 5;">
+      
+      <img style='    width: 95%;
+    bottom: 0;
+    z-index: 5;
+    margin-left: 2.5%;' src="img/anuncio.png">
+    <img ng-click='cerrarPubli()' style='position: absolute;
+    top: -7px;
+    right: 0;
+    height: 30px;
+    margin-right: 0.5%;' src="img/close.png">
+  </div>
+
+
   <ion-content class="home">
     
 

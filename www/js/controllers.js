@@ -36,6 +36,23 @@ $scope.not = data.num;
 
 
   })
+
+.controller('publiCtrl', function(  $scope, $ionicLoading, $stateParams, $rootScope, $state,$ionicSlideBoxDelegate, api) {
+  
+  $scope.publicidadActiva = true;
+
+
+ $scope.cerrarPubli = function(){
+  console.log('cerrar public');
+  $scope.publicidadActiva = false;
+ }
+
+
+
+
+})
+
+
 .controller('internaMaestriaCtrl', function(  $scope, $ionicLoading, $stateParams, $rootScope, $state,$ionicSlideBoxDelegate, api) {
   
   $ionicLoading.show();
@@ -442,9 +459,9 @@ else{ $state.go('internaModuloDiplomado',{idDiplomado:$scope.diplomado.id}) }
 
     }
 
-       $scope.verificarEncuesta = function(idModulo){
+       $scope.verificarEncuesta = function(){
 
-        console.log('d');
+        
         
                     $ionicLoading.show();
             api.verificarEncuesta($scope.userData.idAlumno).then(function(data) {
@@ -473,8 +490,9 @@ else{ $state.go('internaModuloDiplomado',{idDiplomado:$scope.diplomado.id}) }
              }
              else{ 
 
-              if($scope.ExisteMaestria){ $state.go('internaModuloMaestria',{idMaestria:$scope.maestria.id, idDiplomado:$scope.diplomado.id })}
-                else{$state.go('internaModuloDiplomado',{idDiplomado:$scope.diplomado.id })}
+             // if($scope.ExisteMaestria){ $state.go('internaModuloMaestria',{idMaestria:$scope.maestria.id, idDiplomado:$scope.diplomado.id })}
+             if($scope.ExisteMaestria){  $state.go('notaMaestria',{idDiplomado:$scope.diplomado.id, idMaestria: $scope.maestria.id})  }
+                else{$state.go('notaDiplomado',{idDiplomado:$scope.diplomado.id })}
 
             //  $state.go('notaMaestria',{idDiplomado:$scope.idDiplomado, idMaestria: $scope.idMaestria, idModulo:idModulo });
             } 
@@ -768,6 +786,19 @@ else{}
 
 }
 
+
+
+$scope.openPage = function(link){
+
+  if(link == null || link == 'null' || link == 'undefinded'){console.log('nolink')}
+
+  else{
+      window.open(link, '_system', 'location=yes'); return false;
+
+  }  
+}
+
+
     })
 
 
@@ -845,6 +876,20 @@ $scope.closeModal();
 
 
   }
+
+
+
+  $scope.abrirMapa=function(lat,lng){
+
+
+
+ var url = "https://maps.google.com/?q=" + lat + "," + lng;
+    window.open(url, '_system', 'location=yes'); return false;
+
+
+  }
+
+
 
   $scope.getParametros = function(){
 

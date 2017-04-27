@@ -99,37 +99,40 @@
 
         for(var i = 1; i<=data.diplomados.length; i++){
 
-           // console.log(i);
- 
-      
-            var dateObj = {date : data.diplomados[i-1].orden, id:data.diplomados[i-1].idDiplomado, nombre:data.diplomados[i-1].nombre};
+                  console.log($scope.cantidad);
+       
+            
+                  var dateObj = {date : data.diplomados[i-1].orden, id:data.diplomados[i-1].idDiplomado, nombre:data.diplomados[i-1].nombre};
 
-            if(listadoInterno.length < 4){
+                  if(listadoInterno.length < 4){
 
-              listadoInterno.push(dateObj);
+                          listadoInterno.push(dateObj);
 
-                if($scope.cantidad==i){
-                  listado.push(listadoInterno);
-                }
+                            if(data.diplomados.length==i){
+                               console.log(i);
+                              console.log('on1');
+                              listado.push(listadoInterno);
+                            }
 
-            }
-            else{
+                  }
+                  else{
 
-              listado.push(listadoInterno);
-              listadoInterno=[];
-              listadoInterno.push(dateObj);
+                            listado.push(listadoInterno);
+                            listadoInterno=[];
+                            listadoInterno.push(dateObj);
 
-                  if($scope.cantidad==i){
-                  listado.push(listadoInterno);
-                }
+                                if(data.diplomados.length==i){
+                                   console.log('on2');
+                                listado.push(listadoInterno);
+                              }
 
-            }
-
-
-
-
+                  }
         }
+
+
+
         console.log('ver333');
+        console.log(listado);
         $scope.isActive = isActive;
         $scope.calendar =listado; 
 
@@ -138,7 +141,7 @@
 
 
           //$scope.calendar =      [[{date:1},{date:2},{date:3},{date:4}],[{date:5},{date:6},{date:7},{date:8}],[{date:9},{date:10},{date:11},{date:12}],[{date:13},{date:14},{date:15},{date:16}]];
-        template = "<div style='text-align: left;   color: #0958e9 ; font-size: 15px;margin-top: 5px;margin-bottom: 15px;'>{{variable2}}. {{variable}}</div><ion-slide-box on-slide-changed=\"slideHasChanged($index)\" show-pager=\"false\" active-slide=\"activeSlide\">  <ion-slide ng-repeat=\"week in calendar\"><div style=\" font-size:23px; width:70%; margin-left:15%\" class=\"row\"><div ng-repeat=\"day in week\" ng-click=\"cambiarDia(day.date, day.id, day.nombre)\" class=\"col col-17\"><div class=\"row responsive-sm responsive-md responsive-lg text-center\"><div style=\"margin-bottom:0px\" class=\"col\"><span ng-class=\"{'swipeSelected' : isActive(day.date)}\">{{day.date}}</span></div></div></div></div></ion-slide></ion-slide-box>";
+        template = "<div style='text-align: left;   color: #0958e9 ; font-size: 15px;margin-top: 5px;margin-bottom: 15px;'>{{variable2}}. {{variable}}</div><ion-slide-box on-slide-changed=\"slideHasChanged($index)\" show-pager=\"false\" active-slide=\"activeSlide\">  <ion-slide ng-repeat=\"week in calendar \"><div style=\" font-size:23px; width:70%; margin-left:15%\" class=\"row\"><div ng-repeat=\"day in week\" ng-click=\"cambiarDia(day.date, day.id, day.nombre)\" class=\"col col-17\"><div class=\"row responsive-sm responsive-md responsive-lg text-center\"><div style=\"margin-bottom:0px\" class=\"col\"><span ng-class=\"{'swipeSelected' : isActive(day.date)}\">{{day.date}}</span></div></div></div></div></ion-slide></ion-slide-box>";
         template = $compile(template)($scope);
 
         

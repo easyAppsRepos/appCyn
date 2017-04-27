@@ -49,7 +49,7 @@
       <div ion-ripple ng-class="{noLeida : n.estado=='1', leida : n.estado!=='1'}" class='notiDiv' ng-repeat='n in notificaciones' ng-click='leerNoti(n.idNotificacion, n.estado)' >
         <p class="encabezadoNoti">{{n.titulo}}</p>
         <p class="cuerpoNoti">{{n.descripcion}}</p>
-        <p class="accionNoti">{{n.accionTitulo}}</p>
+        <p ng-click="openPage(n.accionLink)" class="accionNoti">{{n.accionTitulo}}</p>
 
         <div ng-show='n.estado=="1"' class="identificador"></div>
 
