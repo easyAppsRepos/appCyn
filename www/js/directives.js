@@ -212,7 +212,7 @@
 
               listadoInterno.push(dateObj);
 
-                if($scope.cantidad==i){
+                if(data.modulos.length==i){
                   listado.push(listadoInterno);
                 }
 
@@ -223,7 +223,7 @@
               listadoInterno=[];
               listadoInterno.push(dateObj);
 
-                  if($scope.cantidad==i){
+                  if(data.modulos.length==i){
                   listado.push(listadoInterno);
                 }
 
