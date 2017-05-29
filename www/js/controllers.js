@@ -39,7 +39,11 @@ $scope.not = data.num;
 
 .controller('publiCtrl', function(  $scope, $ionicLoading, $stateParams, $rootScope, $state,$ionicSlideBoxDelegate, api) {
   
-  $scope.publicidadActiva = true;
+
+           var userData = JSON.parse(window.localStorage.getItem('userInfoVIA'));
+  //$scope.nombreAlumno=  userData.nombre;
+
+   
 
 
  $scope.cerrarPubli = function(){
@@ -49,7 +53,57 @@ $scope.not = data.num;
 
 
 
+$scope.imagenPublicidad={};
 
+$scope.goPubli = function(){
+
+var link = $scope.imagenPublicidad.linkURL;
+
+  if(link == null || link == 'null' || link == 'undefinded'){console.log('nolink')}
+
+  else{
+      window.open(link, '_system', 'location=yes'); return false;
+
+  }  
+
+
+
+}
+
+$scope.getPublicidad = function (){
+
+        api.getPublicidadUsuario(userData.idAlumno).then(function(data) {
+
+       // $ionicLoading.hide();
+        console.log(data);
+
+        if(data==null){
+          //mensajeAlerta('Ha ocurrido un error, verifique su conexion a internet'); return false;
+             console.log('ha ocurrido un error' );
+        }
+
+        if(data.data.error){
+            $scope.publicidadActiva = false;
+         // console.log('ha ocurrido un error' );
+        }
+        else{
+ $scope.publicidadActiva = true;
+          $scope.imagenPublicidad.imagen = data.data.imagenURL;
+  $scope.imagenPublicidad.linkURL = data.data.linkURL;
+console.log($scope.imagenPublicidad);
+        //  $scope.diplomados = data.diplomados;
+         // $scope.nombreMaestria = data.nombreMaestria;
+         // $scope.tesis = data.tesis;
+        //  $scope.dataTesis=data.dataTesis; 
+        
+        }
+        
+
+      });
+
+}
+
+$scope.getPublicidad();
 })
 
 

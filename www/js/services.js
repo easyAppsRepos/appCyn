@@ -28,6 +28,18 @@ angular.module('starter.services', [])
             return response;
             });
         },
+        getPublicidadUsuario:function(idUsuario){  
+
+            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/getPublicidadUsuario',{idUsuario:idUsuario})
+            .then(function(response) {
+            console.log(response);
+            return response;
+            }, function(response) {
+            // something went wrong
+            console.log('error');
+            return response;
+            });
+        },
 
 
 
