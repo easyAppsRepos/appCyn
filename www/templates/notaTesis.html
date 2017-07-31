@@ -121,12 +121,13 @@
     font-family: UbuntuL;">
 
     <i ng-show='tesis.protocoloEstado == 3' class="ion-checkmark"></i>
+    <i ng-show='tesis.protocoloEstado == 4' class="ion-close"></i>
 
     <div style='    height: 100%;
-    font-size: 40px;' ng-show='tesis.protocoloEstado == 1 || tesis.protocoloEstado == 4 || tesis.protocoloEstado == null || tesis.protocoloEstado == "null"'> - </div>
+    font-size: 40px;' ng-show='tesis.protocoloEstado == 2 || tesis.protocoloEstado == null || tesis.protocoloEstado == "null"'> - </div>
 
 
-    <div ng-show='tesis.protocoloEstado == 2'  class="estadoCursando"   style="    
+    <div ng-show='tesis.protocoloEstado == 1'  class="estadoCursando"   style="    
     height: 40px;
     width: 40px;
     border-radius: 40px;
@@ -172,12 +173,12 @@
     font-family: UbuntuL;">
 
     <i ng-show='tesis.avance1Estado == 3' class="ion-checkmark"></i>
-
+    <i ng-show='tesis.avance1Estado == 4' class="ion-close"></i>
     <div style='    height: 100%;
-    font-size: 40px;' ng-show='tesis.avance1Estado == 1 || tesis.avance1Estado == 4 || tesis.avance1Estado == null || tesis.avance1Estado == "null"'> - </div>
+    font-size: 40px;' ng-show='tesis.avance1Estado == 2  || tesis.avance1Estado == null || tesis.avance1Estado == "null"'> - </div>
 
 
-    <div ng-show='tesis.avance1Estado == 2'  class="estadoCursando"   style="    
+    <div ng-show='tesis.avance1Estado == 1'  class="estadoCursando"   style="    
     height: 40px;
     width: 40px;
     border-radius: 40px;
@@ -222,12 +223,12 @@
     font-family: UbuntuL;">
 
     <i ng-show='tesis.avance2Estado == 3' class="ion-checkmark"></i>
-
+    <i ng-show='tesis.avance2Estado == 4' class="ion-close"></i>
     <div style='    height: 100%;
-    font-size: 40px;' ng-show='tesis.avance2Estado == 1 || tesis.avance2Estado == 4 || tesis.avance2Estado == null || tesis.avance1Estado == "null"'> - </div>
+    font-size: 40px;' ng-show='tesis.avance2Estado == 2  || tesis.avance2Estado == null || tesis.avance2Estado == "null"'> - </div>
 
 
-    <div ng-show='tesis.avance2Estado == 2'  class="estadoCursando"   style="    
+    <div ng-show='tesis.avance2Estado == 1'  class="estadoCursando"   style="    
     height: 40px;
     width: 40px;
     border-radius: 40px;
@@ -242,6 +243,59 @@
 
 
     </div>
+
+
+
+    <div style="
+    margin-top: 25px;
+    margin-left: 12px;
+    margin-right: 12px;
+    border-bottom: solid 1px rgba(211, 211, 211, 0.42);
+    padding-bottom: 14px;
+    ">
+
+      <div style="width: 70%;display: inline-block;color:#888;font-size: 20px;line-height: 14px;">
+      3. Tercer avance
+      <br>
+      <span style="
+    font-size: 13px;
+    margin-left: 21px;
+    font-family: UbuntuL;
+    color: #0958e9;
+">{{tesis.avance3Fecha.split(" ")[0]}}</span>
+
+      </div>
+
+      <div style="   color: #0958e9;
+    font-size: 21px;
+    text-align: center;
+    width: 25%;
+    display: inline-block;
+
+    font-family: UbuntuL;">
+
+    <i ng-show='tesis.avance3Estado == 3' class="ion-checkmark"></i>
+    <i ng-show='tesis.avance3Estado == 4' class="ion-close"></i>
+    <div style='    height: 100%;
+    font-size: 40px;' ng-show='tesis.avance3Estado == 2  || tesis.avance3Estado == null || tesis.avance3Estado == "null"'> - </div>
+
+
+    <div ng-show='tesis.avance3Estado == 1'  class="estadoCursando"   style="    
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: sub;">
+      
+    </div>
+
+    </div>
+
+
+
+    </div>
+
 
     <div style="
     margin-top: 25px;
@@ -273,12 +327,12 @@
     font-family: UbuntuL;">
 
     <i ng-show='tesis.documento  == 3' class="ion-checkmark"></i>
-
+    <i ng-show='tesis.documento == 4' class="ion-close"></i>
     <div style='    height: 100%;
-    font-size: 40px;' ng-show='tesis.documento  == 1 || tesis.documento  == 4 || tesis.documento  == null || tesis.documento  == "null"'> - </div>
+    font-size: 40px;' ng-show='tesis.documento  == 2 || tesis.documento  == null || tesis.documento  == "null"'> - </div>
 
 
-    <div ng-show='tesis.documento  == 2'  class="estadoCursando"   style="    
+    <div ng-show='tesis.documento  == 1'  class="estadoCursando"   style="    
     height: 40px;
     width: 40px;
     border-radius: 40px;
@@ -327,12 +381,13 @@
     font-family: UbuntuL;">
 
     <i ng-show='tesis.defensa  == 3' class="ion-checkmark"></i>
+     <i ng-show='tesis.defensa == 4' class="ion-close"></i>
 
     <div style='    height: 100%;
-    font-size: 40px;' ng-show='tesis.defensa  == 1 || tesis.defensa  == 4 || tesis.defensa  == null || tesis.defensa  == "null"'> - </div>
+    font-size: 40px;' ng-show='tesis.defensa  == 2  || tesis.defensa  == null || tesis.defensa  == "null"'> - </div>
 
 
-    <div ng-show='tesis.defensa  == 2'  class="estadoCursando"   style="    
+    <div ng-show='tesis.defensa  == 1'  class="estadoCursando"   style="    
     height: 40px;
     width: 40px;
     border-radius: 40px;

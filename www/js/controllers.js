@@ -459,7 +459,7 @@ $scope.editando = true;
              $scope.existeTesis=true;
              $scope.tesis.id=data.idTesis;
              $scope.tesis.avance=data.avanceTesis;
-             $scope.tesis.estado=data.estadoTesis == 1 ? 'Cursando' : 'Pendiente' ;
+             $scope.tesis.estado=data.estadoTesis == 1 ? 'Cursando' : data.estadoTesis == 3 ? 'Finalizado' : 'Pendiente';
 
           }
           else{ $scope.existeTesis=false;}
