@@ -145,7 +145,8 @@ console.log(userData.idAlumno);
           $scope.diplomados = data.diplomados;
           $scope.nombreMaestria = data.nombreMaestria;
           $scope.tesis = data.tesis;
-          $scope.dataTesis=data.dataTesis; 
+          $scope.dataTesis=data.dataTesis;
+          $scope.avanceTesis=data.avanceTesis; 
         
         }
         
@@ -154,7 +155,7 @@ console.log(userData.idAlumno);
         $scope.getTesisEstado = function(){
 
           if($scope.tesis){ 
-            return $scope.dataTesis.avance+'%' 
+            return $scope.avanceTesis+'%' 
           }
           else{ 
           return "-"
@@ -164,7 +165,7 @@ console.log(userData.idAlumno);
         $scope.goTesis = function(){
 
         if($scope.tesis){ 
-          $state.go('notaTesis'); 
+          $state.go('notaTesis',{idMaestria:$scope.idMaestria}); 
         }
         else{ 
           
@@ -1205,6 +1206,8 @@ actualizarVista();
 
         function getNotaTesis(){
             $ionicLoading.show();
+
+            console.log($scope.idUsuario+'-'+$scope.idMaestria);
             api.getNotaTesis($scope.idUsuario,$scope.idMaestria).then(function(data) {
            
             console.log(data);
