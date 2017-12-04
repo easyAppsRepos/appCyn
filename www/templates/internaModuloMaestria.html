@@ -58,7 +58,7 @@
  <div class='divContentListItem' ng-repeat='m in modulos' ng-click='verificarEncuesta(m.idModulo)'  >
 
       <div style="   vertical-align: middle; width: 70%;display: inline-block;">
-      <span style="color:darkgray;font-size: 19px;">{{m.orden}}. {{m.nombre}}</span>
+      <span style="color:darkgray;font-size: 14px;">{{m.orden}}. {{m.nombre}}</span>
 
       </div>
 
@@ -76,13 +76,15 @@
     margin-top: 8px;' class="icon ion-ios-arrow-right"></i>
     </div>
 
-      <div ng-show='m.estado == "1"'  style="    color: #0958e9;
+      <div ng-show='m.estado == "1" && m.nota == null'  style="    color: #0958e9;
     vertical-align: middle;
     font-size: 36px;
     text-align: center;
     width: 25%;
     display: inline-block;
     line-height: 2;">
+
+
     <div class="estadoCursando"   style="    
     height: 40px;
     width: 40px;
@@ -93,12 +95,7 @@
       
     </div>
 
-    <i style='    color: darkgray;
-    right: 0px;
-    position: absolute;
-    margin-right: 20px;
-    font-size: 28px;
-    margin-top: 8px;' class="icon ion-ios-arrow-right"></i>
+
     </div>
 
 
@@ -106,138 +103,6 @@
     color: darkgray; float:right;' class="icon ion-ios-arrow-right"></i></div>
 
  </div>
-
-<!-- 
-
-
- <div class='divContentListItem'>
-
-      <div style="   vertical-align: middle; width: 70%;display: inline-block;">
-      <span style="color:darkgray;font-size: 19px;">2. Gestion y planificacion estrategica</span>
-
-      </div>
-
-      <div ui-sref='notaDiplomado' style="    color: #0958e9;
-    vertical-align: middle;
-    font-size: 36px;
-    text-align: center;
-    width: 25%;
-    display: inline-block;
-    line-height: 2;">4  <i style='    color: darkgray;
-    right: 0px;
-    position: absolute;
-    margin-right: 20px;
-    font-size: 28px;
-    margin-top: 8px;' class="icon ion-ios-arrow-right"></i></div>
- </div>
-
-
-
- <div class='divContentListItem'>
-
-      <div style="   vertical-align: middle; width: 70%;display: inline-block;">
-      <span style="color:darkgray;font-size: 19px;">3. Analisis contable y financiero</span>
-
-      </div>
-
-      <div style="    color: #0958e9;
-    vertical-align: middle;
-    font-size: 36px;
-    text-align: center;
-    width: 25%;
-    display: inline-block;
-    line-height: 2;">3  <i style='    color: darkgray;
-    right: 0px;
-    position: absolute;
-    margin-right: 20px;
-    font-size: 28px;
-    margin-top: 8px;' class="icon ion-ios-arrow-right"></i></div>
- </div>
-
-
-
- <div class='divContentListItem'>
-
-      <div style="   vertical-align: middle; width: 70%;display: inline-block;">
-      <span style="color:darkgray;font-size: 19px;">4. Gestion financiera</span>
-
-      </div>
-
-      <div style="    color: #0958e9;
-    vertical-align: middle;
-    font-size: 36px;
-    text-align: center;
-    width: 25%;
-    display: inline-block;
-    line-height: 2;">
-
-
-                <div style="  background-color: #90ad40;
-    height: 40px;
-    width: 40px;
-    border-radius: 40px;
-    text-align: center;
-    display: inline-block;
-    vertical-align: text-top;"></div>
-
-      <i style='    color: darkgray;
-    right: 0px;
-    position: absolute;
-    margin-right: 20px;
-    font-size: 28px;
-    margin-top: 8px;' class="icon ion-ios-arrow-right"></i></div>
- </div>
-
-
-
- <div class='divContentListItem'>
-
-      <div style="   vertical-align: middle; width: 70%;display: inline-block;">
-      <span style="color:darkgray;font-size: 19px;">5. Mercadeo de capitales</span>
-
-      </div>
-
-      <div style="    color: darkgray;
-    vertical-align: middle;
-    font-size: 36px;
-    text-align: center;
-    width: 25%;
-    display: inline-block;
-    line-height: 2;"><strong>-</strong>  <i style='    color: darkgray;
-    right: 0px;
-    position: absolute;
-    margin-right: 20px;
-    font-size: 28px;
-    margin-top: 8px;' class="icon ion-ios-arrow-right"></i></div>
- </div>
-
-
-
- <div class='divContentListItem'>
-
-      <div style="   vertical-align: middle; width: 70%;display: inline-block;">
-      <span style="color:darkgray;font-size: 19px;">6. Valuacion de empresas</span>
-
-      </div>
-
-      <div style="    color: darkgray;
-    vertical-align: middle;
-    font-size: 36px;
-    text-align: center;
-    width: 25%;
-    display: inline-block;
-    line-height: 2;"><strong>-</strong>  <i style='    color: darkgray;
-    right: 0px;
-    position: absolute;
-    margin-right: 20px;
-    font-size: 28px;
-    margin-top: 8px;' class="icon ion-ios-arrow-right"></i></div>
- </div>
- -->
-
-
-
-
 
 
   </ion-content>
