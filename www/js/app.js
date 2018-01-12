@@ -36,7 +36,7 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services' ,'d
 
  .constant("serverConfig", {
        // "url": "http://viaprod.tribu.com.py:80",
-       "url": "app.viapd.org:8080",
+       "url": "http://app.viapd.org:80",
        
         //"port": "80"
     })
