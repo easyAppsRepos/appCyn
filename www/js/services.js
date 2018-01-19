@@ -6,7 +6,7 @@ angular.module('starter.services', [])
 
         generarPIN:function(numDocumento, email){  
 
-            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/generarPIN',{numDocumento:numDocumento, email:email})
+            return  $http.post(serverConfig.url+ '/api/v1/index.php/generarPIN',{numDocumento:numDocumento, email:email})
             .then(function(response) {
             console.log(response);
             return response.data.error;
@@ -18,7 +18,7 @@ angular.module('starter.services', [])
         },
         getParametros:function(){  
 
-            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/getParametrosApp')
+            return  $http.post(serverConfig.url+ '/api/v1/index.php/getParametrosApp')
             .then(function(response) {
             console.log(response);
             return response;
@@ -30,7 +30,7 @@ angular.module('starter.services', [])
         },
         getPublicidadUsuario:function(idUsuario){  
 
-            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/getPublicidadUsuario',{idUsuario:idUsuario})
+            return  $http.post(serverConfig.url+ '/api/v1/index.php/getPublicidadUsuario',{idUsuario:idUsuario})
             .then(function(response) {
             console.log(response);
             return response;
@@ -45,7 +45,7 @@ angular.module('starter.services', [])
 
         editarNoti:function(idUsuario, not){  
 
-            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/editarNoti',{idUsuario:idUsuario, not:not})
+            return  $http.post(serverConfig.url+ '/api/v1/index.php/editarNoti',{idUsuario:idUsuario, not:not})
             .then(function(response) {
             console.log(response);
             return response.data;
@@ -58,7 +58,7 @@ angular.module('starter.services', [])
 
         editarTelefono:function(idUsuario, tel){  
 
-            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/editarTelefono',{idUsuario:idUsuario, tel:tel})
+            return  $http.post(serverConfig.url+ '/api/v1/index.php/editarTelefono',{idUsuario:idUsuario, tel:tel})
             .then(function(response) {
             console.log(response);
             return response.data;
@@ -71,7 +71,7 @@ angular.module('starter.services', [])
 
         loginAlumno:function(user, pass){  
 
-            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/loginAlumno',{user:user, pass:pass})
+            return  $http.post(serverConfig.url+ '/api/v1/index.php/loginAlumno',{user:user, pass:pass})
             .then(function(response) {
             console.log(response);
             return response.data;
@@ -84,7 +84,7 @@ angular.module('starter.services', [])
 
             getHomeData:function(userID){  
 
-            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/getHomeData',{numDocumento:userID})
+            return  $http.post(serverConfig.url+ '/api/v1/index.php/getHomeData',{numDocumento:userID})
             .then(function(response) {
             console.log(response);
             return response.data;
@@ -97,7 +97,7 @@ angular.module('starter.services', [])
 
             getDiplomadosMaestria:function(idMaestria, idUsuario){  
 
-            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/getDiplomadosMaestria',{idMaestria:idMaestria, idUsuario:idUsuario })
+            return  $http.post(serverConfig.url+ '/api/v1/index.php/getDiplomadosMaestria',{idMaestria:idMaestria, idUsuario:idUsuario })
             .then(function(response) {
             console.log(response);
             return response.data;
@@ -111,7 +111,7 @@ angular.module('starter.services', [])
 
            getModulosDiplomado:function(idDiplomado, idUsuario, idMaestria){  
 
-            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/getModulosDiplomado',{idDiplomado:idDiplomado, idUsuario:idUsuario, idMaestria:idMaestria })
+            return  $http.post(serverConfig.url+ '/api/v1/index.php/getModulosDiplomado',{idDiplomado:idDiplomado, idUsuario:idUsuario, idMaestria:idMaestria })
             .then(function(response) {
             console.log(response);
             return response.data;
@@ -124,7 +124,7 @@ angular.module('starter.services', [])
 
                    verificarEncuesta:function( idUsuario){  
 
-            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/verificarEncuesta',{idUsuario:idUsuario })
+            return  $http.post(serverConfig.url+ '/api/v1/index.php/verificarEncuesta',{idUsuario:idUsuario })
             .then(function(response) {
             console.log(response);
             return response.data;
@@ -138,7 +138,7 @@ angular.module('starter.services', [])
 
                    getEncuesta:function( idModulo, idDiplomado){  
 
-            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/getEncuesta',{idModulo:idModulo, idDiplomado:idDiplomado })
+            return  $http.post(serverConfig.url+ '/api/v1/index.php/getEncuesta',{idModulo:idModulo, idDiplomado:idDiplomado })
             .then(function(response) {
             console.log(response);
             return response.data;
@@ -151,7 +151,7 @@ angular.module('starter.services', [])
 
             enviarEncuesta:function( idModulo, idDiplomado, idUsuario, idEncuesta, secciones,comentario){  
 
-            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/enviarEncuesta',{idModulo:idModulo,
+            return  $http.post(serverConfig.url+ '/api/v1/index.php/enviarEncuesta',{idModulo:idModulo,
                                                                                      idDiplomado:idDiplomado,
                                                                                      idUsuario:idUsuario,
                                                                                      idEncuesta:idEncuesta,
@@ -170,7 +170,7 @@ angular.module('starter.services', [])
 
             getDiplomados:function(idMaestria){  
 
-            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/getDiplomados',{idMaestria:idMaestria })
+            return  $http.post(serverConfig.url+ '/api/v1/index.php/getDiplomados',{idMaestria:idMaestria })
             .then(function(response) {
             console.log(response);
             return response.data;
@@ -182,7 +182,7 @@ angular.module('starter.services', [])
         },
                     getModulos:function(idDiplomado){  
 
-            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/getModulos',{idDiplomado:idDiplomado })
+            return  $http.post(serverConfig.url+ '/api/v1/index.php/getModulos',{idDiplomado:idDiplomado })
             .then(function(response) {
             console.log(response);
             return response.data;
@@ -195,7 +195,7 @@ angular.module('starter.services', [])
 
                             getMaestriaDiplomado:function(idDiplomado, idMaestria){  
 
-            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/getMaestriaDiplomado',{idDiplomado:idDiplomado,idMaestria:idMaestria })
+            return  $http.post(serverConfig.url+ '/api/v1/index.php/getMaestriaDiplomado',{idDiplomado:idDiplomado,idMaestria:idMaestria })
             .then(function(response) {
             console.log(response);
             return response.data;
@@ -208,7 +208,7 @@ angular.module('starter.services', [])
 
           getNotaTesis:function(idUsuario, idMaestria){  
 
-            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/getNotaTesis',{idUsuario:idUsuario, idMaestria:idMaestria })
+            return  $http.post(serverConfig.url+ '/api/v1/index.php/getNotaTesis',{idUsuario:idUsuario, idMaestria:idMaestria })
             .then(function(response) {
             console.log(response);
             return response.data;
@@ -221,7 +221,7 @@ angular.module('starter.services', [])
 
            getNotificaciones:function(idUsuario){  
 
-            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/getNotificaciones',{idUsuario:idUsuario})
+            return  $http.post(serverConfig.url+ '/api/v1/index.php/getNotificaciones',{idUsuario:idUsuario})
             .then(function(response) {
             console.log(response);
             return response.data;
@@ -234,7 +234,7 @@ angular.module('starter.services', [])
 
                    getNotificacionesCount:function(idUsuario){  
 
-            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/getNotificacionesCount',{idUsuario:idUsuario})
+            return  $http.post(serverConfig.url+ '/api/v1/index.php/getNotificacionesCount',{idUsuario:idUsuario})
             .then(function(response) {
             console.log(response);
             return response.data;
@@ -249,7 +249,7 @@ angular.module('starter.services', [])
 
                   actualizarNoti:function(idNoti){  
 
-            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/actualizarNoti',{idNoti:idNoti})
+            return  $http.post(serverConfig.url+ '/api/v1/index.php/actualizarNoti',{idNoti:idNoti})
             .then(function(response) {
             console.log(response);
             return response.data;
@@ -264,7 +264,7 @@ angular.module('starter.services', [])
 
             getModuloInfo:function(idModulo,idUsuario, idDiplomado){  
 
-            return  $http.post(serverConfig.url+ '/VIAPRO/v1/index.php/getModuloInfo',{idModulo:idModulo, idUsuario:idUsuario, idDiplomado:idDiplomado })
+            return  $http.post(serverConfig.url+ '/api/v1/index.php/getModuloInfo',{idModulo:idModulo, idUsuario:idUsuario, idDiplomado:idDiplomado })
             .then(function(response) {
             console.log(response);
             return response.data;
